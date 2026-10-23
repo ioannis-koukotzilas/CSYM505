@@ -1,6 +1,7 @@
 using CSYM505.Api.Controllers.AnalyticsApi.Dtos;
 using CSYM505.Model.Entities;
 using CSYM505.ORM.Context;
+using MathNet.Numerics.Statistics;
 using Microsoft.EntityFrameworkCore;
 
 namespace CSYM505.Api.Controllers.AnalyticsApi.Services
@@ -19,21 +20,28 @@ namespace CSYM505.Api.Controllers.AnalyticsApi.Services
             var annualDemand = await AnalyzeAnnualDemand();
             var monthlyDemand = await AnalyzeMonthlyDemand();
             var annualSeasonality = AnalyzeAnnualSeasonality(monthlyDemand);
+            var visitorComposition = await AnalyzeVisitorComposition();
+            var monthlyLengthOfStay = await AnalyzeMonthlyLengthOfStay();
 
             await SaveAnnualDemand(annualDemand);
             await SaveMonthlyDemand(monthlyDemand);
             await SaveAnnualSeasonality(annualSeasonality);
+            await SaveVisitorComposition(visitorComposition);
+            await SaveMonthlyLengthOfStay(monthlyLengthOfStay);
 
             var result = new AnalyticsResult
             {
                 AnnualDemand = annualDemand,
                 MonthlyDemand = monthlyDemand,
                 AnnualSeasonality = annualSeasonality,
+                VisitorComposition = visitorComposition,
+                MonthlyLengthOfStay = monthlyLengthOfStay,
             };
 
             return result;
         }
 
+        #region Annual Demand
         /// <summary>
         /// Αναλύει την ετήσια εξέλιξη των διανυκτερεύσεων και υπολογίζει
         /// την ποσοστιαία μεταβολή τους από το προηγούμενο έτος (K1).
@@ -183,7 +191,9 @@ namespace CSYM505.Api.Controllers.AnalyticsApi.Services
 
             await transaction.CommitAsync();
         }
+        #endregion
 
+        #region Monthly Demand
         /// <summary>
         /// Αναλύει τη μηνιαία κατανομή των διανυκτερεύσεων και υπολογίζει
         /// το μερίδιο κάθε μήνα στο ετήσιο σύνολο της ίδιας περιοχής (K2).
@@ -327,7 +337,9 @@ namespace CSYM505.Api.Controllers.AnalyticsApi.Services
 
             await transaction.CommitAsync();
         }
+        #endregion
 
+        #region Annual Seasonality
         /// <summary>
         /// Υπολογίζει τη συγκέντρωση των διανυκτερεύσεων
         /// την περίοδο Ιουνίου–Σεπτεμβρίου (K3).
@@ -376,6 +388,8 @@ namespace CSYM505.Api.Controllers.AnalyticsApi.Services
                     AnnualFlags = firstMonth.AnnualFlags,
                     AnnualRawValue = firstMonth.AnnualRawValue,
                 };
+
+                CalculateSeasonalityStatistics(group.ToList(), result);
 
                 results.Add(result);
 
@@ -426,6 +440,73 @@ namespace CSYM505.Api.Controllers.AnalyticsApi.Services
             return results;
         }
 
+        /// <summary>
+        /// Υπολογίζει τη μέση μηνιαία ζήτηση, την πληθυσμιακή τυπική απόκλιση
+        /// και τον συντελεστή μεταβλητότητας για μία περιοχή και χρονιά.
+        /// </summary>
+        /// <remarks>
+        /// Χρησιμοποιεί τις διανυκτερεύσεις των δώδεκα μηνών M01–M12.
+        /// Απαιτεί πλήρες δωδεκάμηνο, χωρίς διπλότυπα ή άγνωστες τιμές.
+        /// Οι μηδενικές τιμές είναι έγκυρες και συμμετέχουν στον υπολογισμό.
+        ///
+        /// Χρησιμοποιείται πληθυσμιακή τυπική απόκλιση, επειδή εξετάζουμε
+        /// όλους τους μήνες του έτους.
+        /// Συντελεστής μεταβλητότητας = τυπική απόκλιση / μέση τιμή * 100.
+        /// Μηδενική μέση τιμή αφήνει τον συντελεστή μεταβλητότητας null.
+        ///
+        /// Οι τιμές μετατρέπονται σε double για τη χρήση του Math.NET.
+        /// Δεν εφαρμόζεται ρητή στρογγυλοποίηση.
+        /// </remarks>
+        private void CalculateSeasonalityStatistics(List<MonthlyDemand> monthlyDemand, AnnualSeasonality result)
+        {
+            if (monthlyDemand.Count != 12)
+            {
+                return;
+            }
+
+            var distinctMonths = monthlyDemand.Select(item => item.Month).Distinct().Count();
+
+            if (distinctMonths != 12)
+            {
+                return;
+            }
+
+            var monthCodes = new[] { "M01", "M02", "M03", "M04", "M05", "M06", "M07", "M08", "M09", "M10", "M11", "M12" };
+
+            var monthlyNights = new List<double>();
+
+            foreach (var month in monthlyDemand)
+            {
+                if (!monthCodes.Contains(month.Month))
+                {
+                    return;
+                }
+
+                var monthNights = month.Nights;
+
+                if (!monthNights.HasValue)
+                {
+                    return;
+                }
+
+                monthlyNights.Add((double)monthNights.Value);
+            }
+
+            var meanMonthlyNights = Statistics.Mean(monthlyNights);
+
+            var populationStandardDeviation = Statistics.PopulationStandardDeviation(monthlyNights);
+
+            result.MeanMonthlyNights = meanMonthlyNights;
+            result.PopulationStandardDeviation = populationStandardDeviation;
+
+            if (meanMonthlyNights == 0d)
+            {
+                return;
+            }
+
+            result.CoefficientOfVariationPercent = populationStandardDeviation / meanMonthlyNights * 100d;
+        }
+
         private async Task SaveAnnualSeasonality(List<AnnualSeasonality> results)
         {
             await using var transaction = await _context.Database.BeginTransactionAsync();
@@ -455,11 +536,279 @@ namespace CSYM505.Api.Controllers.AnalyticsApi.Services
                 existingResult.SummerFlags = result.SummerFlags;
                 existingResult.AnnualFlags = result.AnnualFlags;
                 existingResult.AnnualRawValue = result.AnnualRawValue;
+
+                existingResult.MeanMonthlyNights = result.MeanMonthlyNights;
+                existingResult.PopulationStandardDeviation = result.PopulationStandardDeviation;
+                existingResult.CoefficientOfVariationPercent = result.CoefficientOfVariationPercent;
             }
 
             await _context.SaveChangesAsync();
 
             await transaction.CommitAsync();
         }
+        #endregion
+
+        #region Visitor Composition
+        /// <summary>
+        /// Διαβάζει την ετήσια σύνθεση των διανυκτερεύσεων τουριστικών καταλυμάτων
+        /// κατά χώρα κατοικίας επισκέπτη από το tour_occ_nin2m.
+        /// </summary>
+        /// <remarks>
+        /// Καλύπτει Ελλάδα (EL) και Κεντρική Μακεδονία (EL52) για το 2020–2025
+        /// και Χαλκιδική (EL527) για το 2024–2025.
+        /// Χρησιμοποιεί ετήσια στοιχεία (freq=A), ετήσιο σύνολο μηνών (month=TOTAL),
+        /// ξενοδοχεία, καταλύματα διακοπών και κάμπινγκ (I551-I553),
+        /// με μονάδα τον αριθμό διανυκτερεύσεων (NR).
+        /// Οι κατηγορίες DOM, FOR και TOTAL αφορούν κατοίκους Ελλάδας,
+        /// κατοίκους εξωτερικού και το σύνολό τους αντίστοιχα.
+        /// Διατηρεί χωριστά τις τιμές, τα flags και το raw περιεχόμενο.
+        /// Ο K4 υπολογίζεται ως διανυκτερεύσεις κατοίκων εξωτερικού
+        /// προς συνολικές διανυκτερεύσεις, επί 100.
+        /// Παραμένει null όταν λείπει απαιτούμενη τιμή ή το σύνολο είναι μηδέν.
+        /// Ο υπολογισμός γίνεται με decimal, χωρίς ρητή στρογγυλοποίηση.
+        /// </remarks>
+        private async Task<List<VisitorComposition>> AnalyzeVisitorComposition()
+        {
+            var residenceCodes = new[] { "DOM", "FOR", "TOTAL" };
+
+            var observations = await _context
+                .MonthlyAccommodationNights.AsNoTracking()
+                .Where(entity =>
+                    entity.Frequency == "A"
+                    && entity.AccommodationType == "I551-I553"
+                    && entity.Month == "TOTAL"
+                    && entity.Unit == "NR"
+                    && entity.Year >= 2020
+                    && entity.Year <= 2025
+                    && (entity.Geo == "EL" || entity.Geo == "EL52" || (entity.Geo == "EL527" && entity.Year >= 2024))
+                    && residenceCodes.Contains(entity.Residence)
+                )
+                .ToListAsync();
+
+            var groupedObservations = observations.GroupBy(entity => new { entity.Geo, entity.Year }).OrderBy(group => group.Key.Geo).ThenBy(group => group.Key.Year);
+
+            var results = new List<VisitorComposition>();
+
+            foreach (var group in groupedObservations)
+            {
+                var firstObservation = group.First();
+
+                var domestic = group.SingleOrDefault(entity => entity.Residence == "DOM");
+                var foreign = group.SingleOrDefault(entity => entity.Residence == "FOR");
+                var total = group.SingleOrDefault(entity => entity.Residence == "TOTAL");
+
+                var result = new VisitorComposition
+                {
+                    Dataset = "tour_occ_nin2m",
+                    Frequency = firstObservation.Frequency,
+                    AccommodationType = firstObservation.AccommodationType,
+                    Month = firstObservation.Month,
+                    Unit = firstObservation.Unit,
+                    Geo = group.Key.Geo,
+                    Year = group.Key.Year,
+                    DomesticNights = domestic?.Value,
+                    ForeignNights = foreign?.Value,
+                    TotalNights = total?.Value,
+                    DomesticFlags = domestic?.Flags,
+                    ForeignFlags = foreign?.Flags,
+                    TotalFlags = total?.Flags,
+                    DomesticRawValue = domestic?.RawValue,
+                    ForeignRawValue = foreign?.RawValue,
+                    TotalRawValue = total?.RawValue,
+                };
+
+                results.Add(result);
+
+                var foreignNights = result.ForeignNights;
+                var totalNights = result.TotalNights;
+
+                if (!foreignNights.HasValue || !totalNights.HasValue || totalNights.Value == 0m)
+                {
+                    continue;
+                }
+
+                var foreignRatio = foreignNights.Value / totalNights.Value;
+
+                result.ForeignSharePercent = foreignRatio * 100m;
+            }
+
+            return results;
+        }
+
+        private async Task SaveVisitorComposition(List<VisitorComposition> results)
+        {
+            await using var transaction = await _context.Database.BeginTransactionAsync();
+
+            var existingResults = await _context.VisitorComposition.ToListAsync();
+
+            foreach (var result in results)
+            {
+                var existingResult = existingResults.SingleOrDefault(existing => existing.Geo == result.Geo && existing.Year == result.Year);
+
+                if (existingResult == null)
+                {
+                    _context.VisitorComposition.Add(result);
+                    continue;
+                }
+
+                result.Id = existingResult.Id;
+
+                existingResult.Dataset = result.Dataset;
+                existingResult.Frequency = result.Frequency;
+                existingResult.AccommodationType = result.AccommodationType;
+                existingResult.Month = result.Month;
+                existingResult.Unit = result.Unit;
+
+                existingResult.DomesticNights = result.DomesticNights;
+                existingResult.ForeignNights = result.ForeignNights;
+                existingResult.TotalNights = result.TotalNights;
+                existingResult.ForeignSharePercent = result.ForeignSharePercent;
+
+                existingResult.DomesticFlags = result.DomesticFlags;
+                existingResult.ForeignFlags = result.ForeignFlags;
+                existingResult.TotalFlags = result.TotalFlags;
+
+                existingResult.DomesticRawValue = result.DomesticRawValue;
+                existingResult.ForeignRawValue = result.ForeignRawValue;
+                existingResult.TotalRawValue = result.TotalRawValue;
+            }
+
+            await _context.SaveChangesAsync();
+
+            await transaction.CommitAsync();
+        }
+        #endregion
+
+        #region Monthly Length Of Stay
+        /// <summary>
+        /// Διαβάζει τις μηνιαίες διανυκτερεύσεις για την ανάλυση
+        /// της μέσης διάρκειας παραμονής στην Ελλάδα.
+        /// </summary>
+        /// <remarks>
+        /// Χρησιμοποιεί το tour_occ_nim για Ιανουάριο 2020–Δεκέμβριο 2025.
+        /// Επιλέγει Ελλάδα (EL), ξενοδοχεία και παρόμοια καταλύματα (I551),
+        /// όλες τις κατηγορίες κατοικίας επισκέπτη μαζί (c_resid=TOTAL),
+        /// μηνιαία συχνότητα (M) και αριθμό διανυκτερεύσεων (NR).
+        /// Διατηρεί τις άγνωστες τιμές, τα flags και το raw περιεχόμενο.
+        /// Αντιστοιχίζει αφίξεις από το tour_occ_arm με τα ίδια φίλτρα,
+        /// για τον ίδιο μήνα και περιοχή.
+        /// Η μονάδα NR αφορά αριθμό διανυκτερεύσεων στην πρώτη πηγή
+        /// και αριθμό αφίξεων στη δεύτερη.
+        /// Ο K5 υπολογίζεται ως διανυκτερεύσεις προς αφίξεις,
+        /// με αποτέλεσμα σε νύχτες ανά άφιξη.
+        /// Παραμένει null όταν λείπει απαιτούμενη τιμή ή οι αφίξεις είναι μηδέν.
+        /// Ο υπολογισμός γίνεται με decimal, χωρίς ρητή στρογγυλοποίηση.
+        /// </remarks>
+        private async Task<List<MonthlyLengthOfStay>> AnalyzeMonthlyLengthOfStay()
+        {
+            var results = await _context
+                .NationalMonthlyAccommodationNights.AsNoTracking()
+                .Where(entity =>
+                    entity.Frequency == "M"
+                    && entity.Residence == "TOTAL"
+                    && entity.AccommodationType == "I551"
+                    && entity.Unit == "NR"
+                    && entity.Geo == "EL"
+                    && entity.TimePeriod.CompareTo("2020-01") >= 0
+                    && entity.TimePeriod.CompareTo("2025-12") <= 0
+                )
+                .OrderBy(entity => entity.TimePeriod)
+                .Select(entity => new MonthlyLengthOfStay
+                {
+                    NightsDataset = "tour_occ_nim",
+                    ArrivalsDataset = "tour_occ_arm",
+                    Frequency = entity.Frequency,
+                    Residence = entity.Residence,
+                    AccommodationType = entity.AccommodationType,
+                    Unit = entity.Unit,
+                    Geo = entity.Geo,
+                    TimePeriod = entity.TimePeriod,
+                    Nights = entity.Value,
+                    NightsFlags = entity.Flags,
+                    NightsRawValue = entity.RawValue,
+                })
+                .ToListAsync();
+
+            var arrivals = await _context
+                .NationalMonthlyAccommodationArrivals.AsNoTracking()
+                .Where(entity =>
+                    entity.Frequency == "M"
+                    && entity.Residence == "TOTAL"
+                    && entity.AccommodationType == "I551"
+                    && entity.Unit == "NR"
+                    && entity.Geo == "EL"
+                    && entity.TimePeriod.CompareTo("2020-01") >= 0
+                    && entity.TimePeriod.CompareTo("2025-12") <= 0
+                )
+                .ToListAsync();
+
+            foreach (var result in results)
+            {
+                var monthlyArrivals = arrivals.SingleOrDefault(entity => entity.Geo == result.Geo && entity.TimePeriod == result.TimePeriod);
+
+                if (monthlyArrivals == null)
+                {
+                    continue;
+                }
+
+                result.Arrivals = monthlyArrivals.Value;
+                result.ArrivalsFlags = monthlyArrivals.Flags;
+                result.ArrivalsRawValue = monthlyArrivals.RawValue;
+
+                var nights = result.Nights;
+                var arrivalsCount = result.Arrivals;
+
+                if (!nights.HasValue || !arrivalsCount.HasValue || arrivalsCount.Value == 0m)
+                {
+                    continue;
+                }
+
+                result.AverageStayNights = nights.Value / arrivalsCount.Value;
+            }
+
+            return results;
+        }
+
+        private async Task SaveMonthlyLengthOfStay(List<MonthlyLengthOfStay> results)
+        {
+            await using var transaction = await _context.Database.BeginTransactionAsync();
+
+            var existingResults = await _context.MonthlyLengthOfStay.ToListAsync();
+
+            foreach (var result in results)
+            {
+                var existingResult = existingResults.SingleOrDefault(existing => existing.Geo == result.Geo && existing.TimePeriod == result.TimePeriod);
+
+                if (existingResult == null)
+                {
+                    _context.MonthlyLengthOfStay.Add(result);
+                    continue;
+                }
+
+                result.Id = existingResult.Id;
+
+                existingResult.NightsDataset = result.NightsDataset;
+                existingResult.ArrivalsDataset = result.ArrivalsDataset;
+                existingResult.Frequency = result.Frequency;
+                existingResult.Residence = result.Residence;
+                existingResult.AccommodationType = result.AccommodationType;
+                existingResult.Unit = result.Unit;
+
+                existingResult.Nights = result.Nights;
+                existingResult.Arrivals = result.Arrivals;
+                existingResult.AverageStayNights = result.AverageStayNights;
+
+                existingResult.NightsFlags = result.NightsFlags;
+                existingResult.ArrivalsFlags = result.ArrivalsFlags;
+
+                existingResult.NightsRawValue = result.NightsRawValue;
+                existingResult.ArrivalsRawValue = result.ArrivalsRawValue;
+            }
+
+            await _context.SaveChangesAsync();
+
+            await transaction.CommitAsync();
+        }
+        #endregion
     }
 }

@@ -31,5 +31,11 @@ namespace CSYM505.Model.Entities
         public string? AnnualFlags { get; set; }
 
         public string? AnnualRawValue { get; set; }
+
+        public double? MeanMonthlyNights { get; set; }
+
+        public double? PopulationStandardDeviation { get; set; }
+
+        public double? CoefficientOfVariationPercent { get; set; }
     }
 }

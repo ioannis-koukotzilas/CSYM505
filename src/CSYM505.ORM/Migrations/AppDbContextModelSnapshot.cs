@@ -404,6 +404,10 @@ namespace CSYM505.ORM.Migrations
                         .HasColumnType("TEXT")
                         .HasColumnName("annual_raw_value");
 
+                    b.Property<double?>("CoefficientOfVariationPercent")
+                        .HasColumnType("REAL")
+                        .HasColumnName("coefficient_of_variation_percent");
+
                     b.Property<string>("Dataset")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -418,6 +422,14 @@ namespace CSYM505.ORM.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("geo");
+
+                    b.Property<double?>("MeanMonthlyNights")
+                        .HasColumnType("REAL")
+                        .HasColumnName("mean_monthly_nights");
+
+                    b.Property<double?>("PopulationStandardDeviation")
+                        .HasColumnType("REAL")
+                        .HasColumnName("population_standard_deviation");
 
                     b.Property<string>("Residence")
                         .IsRequired()
@@ -598,6 +610,89 @@ namespace CSYM505.ORM.Migrations
                         .IsUnique();
 
                     b.ToTable("analytics_monthly_demand", (string)null);
+                });
+
+            modelBuilder.Entity("CSYM505.Model.Entities.MonthlyLengthOfStay", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("id");
+
+                    b.Property<string>("AccommodationType")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("nace_r2");
+
+                    b.Property<decimal?>("Arrivals")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("arrivals");
+
+                    b.Property<string>("ArrivalsDataset")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("arrivals_dataset");
+
+                    b.Property<string>("ArrivalsFlags")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("arrivals_flags");
+
+                    b.Property<string>("ArrivalsRawValue")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("arrivals_raw_value");
+
+                    b.Property<decimal?>("AverageStayNights")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("average_stay_nights");
+
+                    b.Property<string>("Frequency")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("freq");
+
+                    b.Property<string>("Geo")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("geo");
+
+                    b.Property<decimal?>("Nights")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("nights");
+
+                    b.Property<string>("NightsDataset")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("nights_dataset");
+
+                    b.Property<string>("NightsFlags")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("nights_flags");
+
+                    b.Property<string>("NightsRawValue")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("nights_raw_value");
+
+                    b.Property<string>("Residence")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("c_resid");
+
+                    b.Property<string>("TimePeriod")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("time_period");
+
+                    b.Property<string>("Unit")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("unit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Geo", "TimePeriod")
+                        .IsUnique();
+
+                    b.ToTable("analytics_monthly_length_of_stay", (string)null);
                 });
 
             modelBuilder.Entity("CSYM505.Model.Entities.MonthlyPlatformActivity", b =>
@@ -842,6 +937,95 @@ namespace CSYM505.ORM.Migrations
                         .IsUnique();
 
                     b.ToTable("tour_ce_omr", (string)null);
+                });
+
+            modelBuilder.Entity("CSYM505.Model.Entities.VisitorComposition", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("id");
+
+                    b.Property<string>("AccommodationType")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("nace_r2");
+
+                    b.Property<string>("Dataset")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("dataset");
+
+                    b.Property<string>("DomesticFlags")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("domestic_flags");
+
+                    b.Property<decimal?>("DomesticNights")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("domestic_nights");
+
+                    b.Property<string>("DomesticRawValue")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("domestic_raw_value");
+
+                    b.Property<string>("ForeignFlags")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("foreign_flags");
+
+                    b.Property<decimal?>("ForeignNights")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("foreign_nights");
+
+                    b.Property<string>("ForeignRawValue")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("foreign_raw_value");
+
+                    b.Property<decimal?>("ForeignSharePercent")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("foreign_share_percent");
+
+                    b.Property<string>("Frequency")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("freq");
+
+                    b.Property<string>("Geo")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("geo");
+
+                    b.Property<string>("Month")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("month");
+
+                    b.Property<string>("TotalFlags")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("total_flags");
+
+                    b.Property<decimal?>("TotalNights")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("total_nights");
+
+                    b.Property<string>("TotalRawValue")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("total_raw_value");
+
+                    b.Property<string>("Unit")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("unit");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("year");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Geo", "Year")
+                        .IsUnique();
+
+                    b.ToTable("analytics_visitor_composition", (string)null);
                 });
 #pragma warning restore 612, 618
         }

@@ -9,5 +9,9 @@ namespace CSYM505.Api.Controllers.AnalyticsApi.Dtos
         public List<MonthlyDemand> MonthlyDemand { get; set; } = [];
 
         public List<AnnualSeasonality> AnnualSeasonality { get; set; } = [];
+
+        public List<VisitorComposition> VisitorComposition { get; set; } = [];
+
+        public List<MonthlyLengthOfStay> MonthlyLengthOfStay { get; set; } = [];
     }
 }

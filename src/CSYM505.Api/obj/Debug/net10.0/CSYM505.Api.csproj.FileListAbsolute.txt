@@ -150,3 +150,4 @@
 /Users/ioannis/Documents/CSYM505/src/CSYM505.Api/obj/Debug/net10.0/CSYM505.Api.genruntimeconfig.cache
 /Users/ioannis/Documents/CSYM505/src/CSYM505.Api/obj/Debug/net10.0/ref/CSYM505.Api.dll
 /Users/ioannis/Documents/CSYM505/src/CSYM505.Api/obj/Debug/net10.0/CSYM505.Api.sourcelink.json
+/Users/ioannis/Documents/CSYM505/src/CSYM505.Api/bin/Debug/net10.0/MathNet.Numerics.dll

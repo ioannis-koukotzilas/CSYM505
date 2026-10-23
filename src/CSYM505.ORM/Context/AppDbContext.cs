@@ -33,6 +33,10 @@ namespace CSYM505.ORM.Context
 
         public DbSet<AnnualSeasonality> AnnualSeasonality { get; set; } = null!;
 
+        public DbSet<VisitorComposition> VisitorComposition { get; set; } = null!;
+
+        public DbSet<MonthlyLengthOfStay> MonthlyLengthOfStay { get; set; } = null!;
+
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options) { }
 

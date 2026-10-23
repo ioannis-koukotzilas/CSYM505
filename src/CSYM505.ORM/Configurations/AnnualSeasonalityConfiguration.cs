@@ -40,6 +40,12 @@ namespace CSYM505.ORM.Configurations
 
             builder.Property(entity => entity.AnnualRawValue).HasColumnName("annual_raw_value");
 
+            builder.Property(entity => entity.MeanMonthlyNights).HasColumnName("mean_monthly_nights");
+
+            builder.Property(entity => entity.PopulationStandardDeviation).HasColumnName("population_standard_deviation");
+
+            builder.Property(entity => entity.CoefficientOfVariationPercent).HasColumnName("coefficient_of_variation_percent");
+
             builder.HasIndex(entity => new { entity.Geo, entity.Year }).IsUnique();
         }
     }
