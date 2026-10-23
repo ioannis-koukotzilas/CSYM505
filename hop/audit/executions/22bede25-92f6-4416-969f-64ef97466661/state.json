@@ -1,0 +1,114 @@
+{
+  "executionType" : "Pipeline",
+  "parentId" : null,
+  "id" : "22bede25-92f6-4416-969f-64ef97466661",
+  "name" : "transform_estat_tour_occ_nin3",
+  "copyNr" : null,
+  "loggingText" : "2026/10/22 20:58:18 - transform_estat_tour_occ_nin3 - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'\n2026/10/22 20:58:18 - transform_estat_tour_occ_nin3 - Execution started for pipeline [transform_estat_tour_occ_nin3]\n2026/10/22 20:58:18 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_nin3.tsv'\n2026/10/22 20:58:19 - CSV file input.0 - Finished processing (I=28964, O=0, R=0, W=28963, U=0, E=0)\n2026/10/22 20:58:19 - Split dimensions.0 - Finished processing (I=0, O=0, R=28963, W=28963, U=0, E=0)\n2026/10/22 20:58:19 - Years to rows.0 - Finished processing (I=0, O=0, R=28963, W=173778, U=0, E=0)\n2026/10/22 20:58:19 - Extract value and flags.0 - Finished processing (I=0, O=0, R=173778, W=173778, U=0, E=0)\n2026/10/22 20:58:19 - Set data types.0 - Finished processing (I=0, O=0, R=173778, W=173778, U=0, E=0)\n2026/10/22 20:58:19 - Text file output.0 - Finished processing (I=0, O=173779, R=173778, W=173778, U=0, E=0)\n2026/10/22 20:58:19 - transform_estat_tour_occ_nin3 - Pipeline duration : 0.4 seconds [  0.400\" ]\n",
+  "lastLogLineNr" : 116,
+  "metrics" : [ {
+    "componentName" : "CSV file input",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 0,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 211416,
+      "Input" : 28964,
+      "Written" : 28963,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 137,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Split dimensions",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 28963,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 129299,
+      "Input" : 0,
+      "Written" : 28963,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 224,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Years to rows",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 28963,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 549930,
+      "Input" : 0,
+      "Written" : 173778,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 316,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Extract value and flags",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 173778,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 529811,
+      "Input" : 0,
+      "Written" : 173778,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 328,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Set data types",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 173778,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 506641,
+      "Input" : 0,
+      "Written" : 173778,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 343,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Text file output",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 173778,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 484064,
+      "Input" : 0,
+      "Written" : 173778,
+      "Updated" : 0,
+      "Output" : 173779,
+      "Data volume out" : 7373743,
+      "Duration" : 359,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  } ],
+  "statusDescription" : "Finished",
+  "updateTime" : 1792691899234,
+  "childIds" : [ "c67a9537-6d2d-4ff9-9c3d-7feb37ea7900", "205d959e-6e9a-48e8-a98d-2edd054f972a", "470f3369-aeb8-4569-98df-8287777d1c66", "4e0d151d-7ea6-4066-b74c-741d7ddb9675", "fdc49bbd-a0b7-4aaf-a954-e105b70ded0a", "4367accb-4ea2-4d57-890d-121df6976d5a" ],
+  "details" : { },
+  "failed" : false,
+  "executionEndDate" : 1792691899233,
+  "containerId" : "911c2557-03a7-4fb9-bac6-baf3e0537dd7"
+}

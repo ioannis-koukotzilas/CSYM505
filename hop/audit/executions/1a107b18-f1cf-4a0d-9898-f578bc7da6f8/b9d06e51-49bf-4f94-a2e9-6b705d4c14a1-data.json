@@ -1,0 +1,28 @@
+{
+  "executionType" : "Action",
+  "dataSetMeta" : {
+    "setKey" : "b9d06e51-49bf-4f94-a2e9-6b705d4c14a1",
+    "logChannelId" : "b9d06e51-49bf-4f94-a2e9-6b705d4c14a1",
+    "name" : "Start",
+    "fieldName" : null,
+    "sampleDescription" : null,
+    "copyNr" : "0",
+    "description" : "action"
+  },
+  "finished" : true,
+  "collectionDate" : 1792686026795,
+  "parentId" : "1a107b18-f1cf-4a0d-9898-f578bc7da6f8",
+  "ownerId" : "b9d06e51-49bf-4f94-a2e9-6b705d4c14a1",
+  "setMetaData" : {
+    "result" : {
+      "setKey" : "result",
+      "logChannelId" : "b9d06e51-49bf-4f94-a2e9-6b705d4c14a1",
+      "name" : "Start",
+      "fieldName" : null,
+      "sampleDescription" : null,
+      "copyNr" : "0",
+      "description" : "Result details of action"
+    }
+  },
+  "rowsBinaryGzipBase64Encoded" : "H4sIAAAAAAAA/2NgYGBkYCtKLS7NKWFgYGCCYhBgzk6t/I8FAKUY9UCEDkjRo6Y1UPUMrKl5uqHBjAwMSALxocFABq9raVF+Qaq+Y0lGal4xA5IlrGWJOaWpNLOGGUSwQ7xnD2KzlBSVpoIYbKlFRflFYEWMBiCSo7gkv6AgNQWsjDUtMac4FQAJHmCuHQEAAA=="
+}

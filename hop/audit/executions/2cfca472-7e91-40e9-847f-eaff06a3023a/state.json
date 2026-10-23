@@ -1,0 +1,114 @@
+{
+  "executionType" : "Pipeline",
+  "parentId" : null,
+  "id" : "2cfca472-7e91-40e9-847f-eaff06a3023a",
+  "name" : "transform_estat_tour_occ_nim",
+  "copyNr" : null,
+  "loggingText" : "2026/10/22 22:10:26 - transform_estat_tour_occ_nim - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'\n2026/10/22 22:10:26 - transform_estat_tour_occ_nim - Execution started for pipeline [transform_estat_tour_occ_nim]\n2026/10/22 22:10:26 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_nim.tsv'\n2026/10/22 22:10:26 - CSV file input.0 - Finished processing (I=2027, O=0, R=0, W=2026, U=0, E=0)\n2026/10/22 22:10:26 - Split dimensions.0 - Finished processing (I=0, O=0, R=2026, W=2026, U=0, E=0)\n2026/10/22 22:10:27 - Periods to rows.0 - Finished processing (I=0, O=0, R=2026, W=891440, U=0, E=0)\n2026/10/22 22:10:28 - Extract value and flags.0 - Finished processing (I=0, O=0, R=891440, W=891440, U=0, E=0)\n2026/10/22 22:10:28 - Set data types.0 - Finished processing (I=0, O=0, R=891440, W=891440, U=0, E=0)\n2026/10/22 22:10:28 - Text file output.0 - Finished processing (I=0, O=891441, R=891440, W=891440, U=0, E=0)\n2026/10/22 22:10:28 - transform_estat_tour_occ_nim - Pipeline duration : 1.745 seconds [  1.745\" ]\n",
+  "lastLogLineNr" : 146,
+  "metrics" : [ {
+    "componentName" : "CSV file input",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 0,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 12911,
+      "Input" : 2027,
+      "Written" : 2026,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 157,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Split dimensions",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 2026,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 12823,
+      "Input" : 0,
+      "Written" : 2026,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 158,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Periods to rows",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 2026,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 578106,
+      "Input" : 0,
+      "Written" : 891440,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 1542,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Extract value and flags",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 891440,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 573273,
+      "Input" : 0,
+      "Written" : 891440,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 1555,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Set data types",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 891440,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 572537,
+      "Input" : 0,
+      "Written" : 891440,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 1557,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Text file output",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 891440,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 571436,
+      "Input" : 0,
+      "Written" : 891440,
+      "Updated" : 0,
+      "Output" : 891441,
+      "Data volume out" : 36264460,
+      "Duration" : 1560,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  } ],
+  "statusDescription" : "Finished",
+  "updateTime" : 1792696228014,
+  "childIds" : [ "9877fa50-3b34-4a5f-b0fa-9150372030cb", "4bd76089-0c11-45bd-a51b-440d0c635e73", "5a3ae507-bb0a-4609-8c55-87378a4fcd09", "69281447-5548-477d-93fb-84e52195aefe", "1c9ac88f-5095-4665-8ffc-4221b684f6de", "b3b5ee36-2f22-40a5-bff8-ca2847ebb098" ],
+  "details" : { },
+  "failed" : false,
+  "executionEndDate" : 1792696228012,
+  "containerId" : "d099dbba-e487-4213-be31-bb4e7388a75d"
+}

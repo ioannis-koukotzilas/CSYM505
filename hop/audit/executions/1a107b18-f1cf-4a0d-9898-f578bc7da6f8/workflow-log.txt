@@ -1,0 +1,53 @@
+2026/10/22 19:20:26 - download_tour_occ_nin2m - Start of workflow execution
+2026/10/22 19:20:26 - download_tour_occ_nin2m - Starting action [Start]
+2026/10/22 19:20:26 - download_tour_occ_nin2m - Finished action [Start] (result=[true])
+2026/10/22 19:20:26 - download_tour_occ_nin2m - Starting action [Download tour_occ_nin2m]
+2026/10/22 19:20:26 - Download tour_occ_nin2m - Start of HTTP action.
+2026/10/22 19:20:26 - Download tour_occ_nin2m - Connecting to URL: https://ec.europa.eu/eurostat/api/dissemination/sdmx/3.0/data/dataflow/ESTAT/TOUR_OCC_NIN2M/1.0?format=csvdata&formatVersion=2.0&compress=false
+2026/10/22 19:20:27 - Download tour_occ_nin2m - ERROR: I was unable to save the HTTP result to file because of a I/O error: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2026/10/22 19:20:27 - Download tour_occ_nin2m - ERROR: javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:130)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:378)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:316)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.checkServerCerts(CertificateMessage.java:1318)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.onConsumeCertificate(CertificateMessage.java:1195)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.consume(CertificateMessage.java:1138)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.ssl.SSLHandshake.consume(SSLHandshake.java:393)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:476)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:447)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.ssl.TransportContext.dispatch(TransportContext.java:201)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:172)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1506)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.ssl.SSLSocketImpl.readHandshakeRecord(SSLSocketImpl.java:1421)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:455)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:426)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.net.www.protocol.https.HttpsClient.afterConnect(HttpsClient.java:586)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:187)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1675)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1599)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:223)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at org.apache.hop.workflow.actions.http.ActionHttp.execute(ActionHttp.java:398)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at org.apache.hop.workflow.Workflow.executeFromStart(Workflow.java:814)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at org.apache.hop.workflow.Workflow.executeFromStart(Workflow.java:987)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at org.apache.hop.workflow.Workflow.executeFromStart(Workflow.java:506)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at org.apache.hop.workflow.Workflow.startExecution(Workflow.java:315)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at org.apache.hop.workflow.engines.local.LocalWorkflowEngine.startExecution(LocalWorkflowEngine.java:264)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at org.apache.hop.ui.hopgui.file.workflow.HopGuiWorkflowGraph.lambda$start$25(HopGuiWorkflowGraph.java:5081)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:388)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:271)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.validator.Validator.validate(Validator.java:256)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:230)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:132)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.checkServerCerts(CertificateMessage.java:1302)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	... 24 more
+2026/10/22 19:20:27 - Download tour_occ_nin2m - Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.provider.certpath.SunCertPathBuilder.build(SunCertPathBuilder.java:148)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:129)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/java.security.cert.CertPathBuilder.build(CertPathBuilder.java:297)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:383)
+2026/10/22 19:20:27 - Download tour_occ_nin2m - 	... 29 more
+2026/10/22 19:20:27 - download_tour_occ_nin2m - Finished action [Download tour_occ_nin2m] (result=[false])
+2026/10/22 19:20:27 - download_tour_occ_nin2m - Workflow execution finished

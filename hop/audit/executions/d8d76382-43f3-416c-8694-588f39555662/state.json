@@ -1,0 +1,17 @@
+{
+  "executionType" : "Transform",
+  "parentId" : "66641fec-8cea-4f8d-8f28-16bb8b830997",
+  "id" : "d8d76382-43f3-416c-8694-588f39555662",
+  "name" : "Text file output",
+  "copyNr" : "0",
+  "loggingText" : null,
+  "lastLogLineNr" : null,
+  "metrics" : [ ],
+  "statusDescription" : "Finished",
+  "updateTime" : 1792698946085,
+  "childIds" : [ ],
+  "details" : { },
+  "failed" : false,
+  "executionEndDate" : 1792698946081,
+  "containerId" : "4e50ecbc-ddbd-475e-9f3f-4888a8b1e8ba"
+}

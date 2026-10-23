@@ -1,0 +1,13 @@
+@CSYM505.Api_HostAddress = http://localhost:5068
+
+# Development OpenAPI.
+GET {{CSYM505.Api_HostAddress}}/openapi/v1.json
+Accept: application/json
+
+###
+
+# Εισάγει τις ελληνικές παρατηρήσεις και των δέκα datasets της Eurostat, με ξεχωριστό transaction ανά πίνακα. Επιστρέφει λίστα αποτελεσμάτων.
+POST {{CSYM505.Api_HostAddress}}/api/import-data
+Accept: application/json
+
+###

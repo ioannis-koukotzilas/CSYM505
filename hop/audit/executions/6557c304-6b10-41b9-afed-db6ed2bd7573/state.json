@@ -1,0 +1,114 @@
+{
+  "executionType" : "Pipeline",
+  "parentId" : null,
+  "id" : "6557c304-6b10-41b9-afed-db6ed2bd7573",
+  "name" : "transform_estat_tour_occ_arn2",
+  "copyNr" : null,
+  "loggingText" : "2026/10/22 22:25:59 - transform_estat_tour_occ_arn2 - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'\n2026/10/22 22:25:59 - transform_estat_tour_occ_arn2 - Execution started for pipeline [transform_estat_tour_occ_arn2]\n2026/10/22 22:25:59 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_arn2.tsv'\n2026/10/22 22:25:59 - CSV file input.0 - Finished processing (I=16369, O=0, R=0, W=16368, U=0, E=0)\n2026/10/22 22:26:00 - Split dimensions.0 - Finished processing (I=0, O=0, R=16368, W=16368, U=0, E=0)\n2026/10/22 22:26:00 - Years to rows.0 - Finished processing (I=0, O=0, R=16368, W=589248, U=0, E=0)\n2026/10/22 22:26:00 - Extract value and flags.0 - Finished processing (I=0, O=0, R=589248, W=589248, U=0, E=0)\n2026/10/22 22:26:00 - Set data types.0 - Finished processing (I=0, O=0, R=589248, W=589248, U=0, E=0)\n2026/10/22 22:26:00 - Text file output.0 - Finished processing (I=0, O=589249, R=589248, W=589248, U=0, E=0)\n2026/10/22 22:26:00 - transform_estat_tour_occ_arn2 - Pipeline duration : 1.08 seconds [  1.080\" ]\n",
+  "lastLogLineNr" : 176,
+  "metrics" : [ {
+    "componentName" : "CSV file input",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 0,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 66004,
+      "Input" : 16369,
+      "Written" : 16368,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 248,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Split dimensions",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 16368,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 32934,
+      "Input" : 0,
+      "Written" : 16368,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 497,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Years to rows",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 16368,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 587486,
+      "Input" : 0,
+      "Written" : 589248,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 1003,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Extract value and flags",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 589248,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 579968,
+      "Input" : 0,
+      "Written" : 589248,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 1016,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Set data types",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 589248,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 573198,
+      "Input" : 0,
+      "Written" : 589248,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 1028,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Text file output",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 589248,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 562260,
+      "Input" : 0,
+      "Written" : 589248,
+      "Updated" : 0,
+      "Output" : 589249,
+      "Data volume out" : 23021644,
+      "Duration" : 1048,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  } ],
+  "statusDescription" : "Finished",
+  "updateTime" : 1792697160697,
+  "childIds" : [ "33585cbf-e9a8-42fa-98f9-e2f8f8236841", "286ce5a1-5c28-4eb0-910f-d4590af569fd", "51b68a2c-b25c-478d-9703-9bcb35c3a20c", "b6a86573-d26a-49e3-ad55-17273213d81e", "48bd3cfb-067d-4e2e-90e6-d153d0af96c6", "a142f714-7051-4ac5-963b-c319ce59fbff" ],
+  "details" : { },
+  "failed" : false,
+  "executionEndDate" : 1792697160696,
+  "containerId" : "a0d73a6c-6278-4588-a826-4726a3911202"
+}

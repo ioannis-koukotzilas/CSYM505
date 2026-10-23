@@ -1,0 +1,114 @@
+{
+  "executionType" : "Pipeline",
+  "parentId" : null,
+  "id" : "4ffd34b5-a70d-460f-988c-7a3658ed0bc5",
+  "name" : "transform_estat_tour_cap_nuts2",
+  "copyNr" : null,
+  "loggingText" : "2026/10/22 22:51:58 - transform_estat_tour_cap_nuts2 - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'\n2026/10/22 22:51:58 - transform_estat_tour_cap_nuts2 - Execution started for pipeline [transform_estat_tour_cap_nuts2]\n2026/10/22 22:51:58 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_cap_nuts2.tsv'\n2026/10/22 22:51:59 - CSV file input.0 - Finished processing (I=14922, O=0, R=0, W=14921, U=0, E=0)\n2026/10/22 22:51:59 - Split dimensions.0 - Finished processing (I=0, O=0, R=14921, W=14921, U=0, E=0)\n2026/10/22 22:51:59 - Years to rows.0 - Finished processing (I=0, O=0, R=14921, W=552077, U=0, E=0)\n2026/10/22 22:51:59 - Extract value and flags.0 - Finished processing (I=0, O=0, R=552077, W=552077, U=0, E=0)\n2026/10/22 22:51:59 - Set data types.0 - Finished processing (I=0, O=0, R=552077, W=552077, U=0, E=0)\n2026/10/22 22:51:59 - Text file output.0 - Finished processing (I=0, O=552078, R=552077, W=552077, U=0, E=0)\n2026/10/22 22:51:59 - transform_estat_tour_cap_nuts2 - Pipeline duration : 1.0 seconds [  1.000\" ]\n",
+  "lastLogLineNr" : 236,
+  "metrics" : [ {
+    "componentName" : "CSV file input",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 0,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 98171,
+      "Input" : 14922,
+      "Written" : 14921,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 152,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Split dimensions",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 14921,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 47824,
+      "Input" : 0,
+      "Written" : 14921,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 312,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Years to rows",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 14921,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 597486,
+      "Input" : 0,
+      "Written" : 552077,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 924,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Extract value and flags",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 552077,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 592357,
+      "Input" : 0,
+      "Written" : 552077,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 932,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Set data types",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 552077,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 586692,
+      "Input" : 0,
+      "Written" : 552077,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 941,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Text file output",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 552077,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 579305,
+      "Input" : 0,
+      "Written" : 552077,
+      "Updated" : 0,
+      "Output" : 552078,
+      "Data volume out" : 21838993,
+      "Duration" : 953,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  } ],
+  "statusDescription" : "Finished",
+  "updateTime" : 1792698719882,
+  "childIds" : [ "0ee08504-780e-4543-81d2-204d941cc142", "a393de89-0bc2-46ab-98aa-202e63a1346f", "996335f1-19b9-4d37-8a05-0e8952c2782d", "f1554904-9925-462e-96b9-116a874de3d6", "bbfdcc5d-fab6-4335-bc60-fb1d0e5f015c", "f0dca4e5-dffd-4384-bc46-89e356d0a3ff" ],
+  "details" : { },
+  "failed" : false,
+  "executionEndDate" : 1792698719882,
+  "containerId" : "9bf07d7e-1880-4c33-9b64-e9f1ba5bdaba"
+}

@@ -1,0 +1,252 @@
+2026/10/22 19:50:54 - Hop - Projects enabled
+2026/10/22 19:50:54 - Hop - Enabling project : 'default'
+2026/10/22 19:50:54 - Hop - Two-way password encoder initialized with plugin ID 'Hop' for project 'default'
+2026/10/22 19:51:45 - Hop - Two-way password encoder initialized with plugin ID 'Hop' for project 'etl'
+2026/10/22 19:57:48 - Preview pipeline for CSV file input - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/22 19:57:48 - Preview pipeline for CSV file input - Execution started for pipeline [Preview pipeline for CSV file input]
+2026/10/22 19:57:48 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_nin3.tsv'
+2026/10/22 19:57:49 - dummy.0 - Finished processing (I=0, O=0, R=10, W=9, U=0, E=0)
+2026/10/22 19:57:49 - CSV file input.0 - Finished processing (I=12, O=0, R=0, W=10, U=0, E=0)
+2026/10/22 19:57:49 - Preview pipeline for CSV file input - Pipeline duration : 0.557 seconds [  0.557" ]
+2026/10/22 19:57:49 - Preview pipeline for CSV file input - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/22 19:58:13 - Preview pipeline for CSV file input - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/22 19:58:13 - Preview pipeline for CSV file input - Execution started for pipeline [Preview pipeline for CSV file input]
+2026/10/22 19:58:13 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_nin3.tsv'
+2026/10/22 19:58:14 - CSV file input.0 - Finished processing (I=12, O=0, R=0, W=10, U=0, E=0)
+2026/10/22 19:58:14 - dummy.0 - Finished processing (I=0, O=0, R=10, W=9, U=0, E=0)
+2026/10/22 19:58:14 - Preview pipeline for CSV file input - Pipeline duration : 0.506 seconds [  0.506" ]
+2026/10/22 19:58:14 - Preview pipeline for CSV file input - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/22 20:04:10 - transform_estat_tour_occ_nin3 - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/22 20:04:10 - transform_estat_tour_occ_nin3 - Execution started for pipeline [transform_estat_tour_occ_nin3]
+2026/10/22 20:04:10 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_nin3.tsv'
+2026/10/22 20:04:25 - CSV file input.0 - Finished processing (I=1858, O=0, R=0, W=1856, U=0, E=0)
+2026/10/22 20:04:25 - Split dimensions.0 - Finished processing (I=0, O=0, R=1000, W=1000, U=0, E=0)
+2026/10/22 20:04:25 - transform_estat_tour_occ_nin3 - Pipeline duration : 14.664 seconds [ 14.664" ]
+2026/10/22 20:04:25 - Hop - Pipeline 'transform_estat_tour_occ_nin3' completed.
+2026/10/22 20:04:25 - transform_estat_tour_occ_nin3 - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/22 20:08:57 - transform_estat_tour_occ_nin3 - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/22 20:08:57 - transform_estat_tour_occ_nin3 - Execution started for pipeline [transform_estat_tour_occ_nin3]
+2026/10/22 20:08:57 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_nin3.tsv'
+2026/10/22 20:10:04 - Years to rows.0 - Finished processing (I=0, O=0, R=167, W=1000, U=0, E=0)
+2026/10/22 20:10:04 - CSV file input.0 - Finished processing (I=855, O=0, R=0, W=853, U=0, E=0)
+2026/10/22 20:10:04 - Split dimensions.0 - Finished processing (I=0, O=0, R=366, W=366, U=0, E=0)
+2026/10/22 20:10:04 - transform_estat_tour_occ_nin3 - Pipeline duration : 66.984 seconds [  1'  6.984" ]
+2026/10/22 20:10:04 - Hop - Pipeline 'transform_estat_tour_occ_nin3' completed.
+2026/10/22 20:10:04 - transform_estat_tour_occ_nin3 - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/22 20:12:28 - transform_estat_tour_occ_nin3 - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/22 20:12:28 - transform_estat_tour_occ_nin3 - Execution started for pipeline [transform_estat_tour_occ_nin3]
+2026/10/22 20:12:28 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_nin3.tsv'
+2026/10/22 20:12:58 - Years to rows.0 - Finished processing (I=0, O=0, R=167, W=1000, U=0, E=0)
+2026/10/22 20:12:58 - CSV file input.0 - Finished processing (I=855, O=0, R=0, W=853, U=0, E=0)
+2026/10/22 20:12:58 - Split dimensions.0 - Finished processing (I=0, O=0, R=571, W=571, U=0, E=0)
+2026/10/22 20:12:58 - transform_estat_tour_occ_nin3 - Pipeline duration : 30.151 seconds [ 30.151" ]
+2026/10/22 20:12:58 - Hop - Pipeline 'transform_estat_tour_occ_nin3' completed.
+2026/10/22 20:12:58 - transform_estat_tour_occ_nin3 - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/22 20:16:14 - transform_estat_tour_occ_nin3 - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/22 20:16:14 - transform_estat_tour_occ_nin3 - Execution started for pipeline [transform_estat_tour_occ_nin3]
+2026/10/22 20:16:14 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_nin3.tsv'
+2026/10/22 20:17:04 - GUI - Saving to file: /var/folders/7j/0lql871j1p5dvh3ljdry0b2m0000gn/T/apache-hop-table-export_3a9121c5-724a-4678-995d-799d0f320e58.csv
+2026/10/22 20:17:35 - GUI - Saving to file: /var/folders/7j/0lql871j1p5dvh3ljdry0b2m0000gn/T/apache-hop-table-export_d230011a-25cd-474d-a3a6-d80685805917.xlsx
+2026/10/22 20:18:04 - Years to rows.0 - Finished processing (I=0, O=0, R=830, W=4975, U=0, E=0)
+2026/10/22 20:18:04 - Split dimensions.0 - Finished processing (I=0, O=0, R=1045, W=1044, U=0, E=0)
+2026/10/22 20:18:04 - CSV file input.0 - Finished processing (I=3374, O=0, R=0, W=3372, U=0, E=0)
+2026/10/22 20:18:04 - Extract value and flags.0 - Finished processing (I=0, O=0, R=1000, W=1000, U=0, E=0)
+2026/10/22 20:18:04 - transform_estat_tour_occ_nin3 - Pipeline duration : 109.672 seconds [  1' 49.672" ]
+2026/10/22 20:18:04 - Hop - Pipeline 'transform_estat_tour_occ_nin3' completed.
+2026/10/22 20:18:04 - transform_estat_tour_occ_nin3 - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/22 20:18:41 - transform_estat_tour_occ_nin3 - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/22 20:18:41 - transform_estat_tour_occ_nin3 - Execution started for pipeline [transform_estat_tour_occ_nin3]
+2026/10/22 20:18:41 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_nin3.tsv'
+2026/10/22 20:19:25 - Split dimensions.0 - Finished processing (I=0, O=0, R=563, W=562, U=0, E=0)
+2026/10/22 20:19:25 - Years to rows.0 - Finished processing (I=0, O=0, R=413, W=2472, U=0, E=0)
+2026/10/22 20:19:25 - CSV file input.0 - Finished processing (I=1728, O=0, R=0, W=1726, U=0, E=0)
+2026/10/22 20:19:26 - Extract value and flags.0 - Finished processing (I=0, O=0, R=1000, W=1000, U=0, E=0)
+2026/10/22 20:19:26 - transform_estat_tour_occ_nin3 - Pipeline duration : 44.3 seconds [ 44.300" ]
+2026/10/22 20:19:26 - Hop - Pipeline 'transform_estat_tour_occ_nin3' completed.
+2026/10/22 20:19:26 - transform_estat_tour_occ_nin3 - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/22 20:19:38 - transform_estat_tour_occ_nin3 - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/22 20:19:38 - transform_estat_tour_occ_nin3 - Execution started for pipeline [transform_estat_tour_occ_nin3]
+2026/10/22 20:19:38 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_nin3.tsv'
+2026/10/22 20:20:17 - Split dimensions.0 - Finished processing (I=0, O=0, R=3559, W=3558, U=0, E=0)
+2026/10/22 20:20:17 - Years to rows.0 - Finished processing (I=0, O=0, R=2267, W=13599, U=0, E=0)
+2026/10/22 20:20:17 - CSV file input.0 - Finished processing (I=7471, O=0, R=0, W=7469, U=0, E=0)
+2026/10/22 20:20:18 - Extract value and flags.0 - Finished processing (I=0, O=0, R=5000, W=5000, U=0, E=0)
+2026/10/22 20:20:18 - transform_estat_tour_occ_nin3 - Pipeline duration : 40.083 seconds [ 40.083" ]
+2026/10/22 20:20:18 - Hop - Pipeline 'transform_estat_tour_occ_nin3' completed.
+2026/10/22 20:20:18 - transform_estat_tour_occ_nin3 - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/22 20:37:52 - transform_estat_tour_occ_nin3 - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/22 20:37:52 - transform_estat_tour_occ_nin3 - Execution started for pipeline [transform_estat_tour_occ_nin3]
+2026/10/22 20:37:52 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_nin3.tsv'
+2026/10/22 20:39:00 - Split dimensions.0 - Finished processing (I=0, O=0, R=1783, W=1782, U=0, E=0)
+2026/10/22 20:39:00 - Extract value and flags.0 - Finished processing (I=0, O=0, R=2996, W=2995, U=0, E=0)
+2026/10/22 20:39:00 - CSV file input.0 - Finished processing (I=3490, O=0, R=0, W=3488, U=0, E=0)
+2026/10/22 20:39:00 - Years to rows.0 - Finished processing (I=0, O=0, R=1584, W=9504, U=0, E=0)
+2026/10/22 20:39:00 - Set data types.0 - Finished processing (I=0, O=0, R=1000, W=1000, U=0, E=0)
+2026/10/22 20:39:00 - transform_estat_tour_occ_nin3 - Pipeline duration : 67.657 seconds [  1'  7.657" ]
+2026/10/22 20:39:00 - Hop - Pipeline 'transform_estat_tour_occ_nin3' completed.
+2026/10/22 20:39:00 - transform_estat_tour_occ_nin3 - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/22 20:52:41 - Hop - Pipeline opened.
+2026/10/22 20:52:41 - Hop - Launching pipeline [transform_estat_tour_occ_nin3]...
+2026/10/22 20:52:41 - Hop - Started executing pipeline 'transform_estat_tour_occ_nin3'.
+2026/10/22 20:52:41 - transform_estat_tour_occ_nin3 - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/22 20:52:41 - transform_estat_tour_occ_nin3 - Execution started for pipeline [transform_estat_tour_occ_nin3]
+2026/10/22 20:52:41 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_nin3.tsv'
+2026/10/22 20:52:42 - CSV file input.0 - Finished processing (I=28964, O=0, R=0, W=28963, U=0, E=0)
+2026/10/22 20:52:42 - Split dimensions.0 - Finished processing (I=0, O=0, R=28963, W=28963, U=0, E=0)
+2026/10/22 20:52:42 - Years to rows.0 - Finished processing (I=0, O=0, R=28963, W=173778, U=0, E=0)
+2026/10/22 20:52:42 - Extract value and flags.0 - Finished processing (I=0, O=0, R=173778, W=173778, U=0, E=0)
+2026/10/22 20:52:42 - Set data types.0 - Finished processing (I=0, O=0, R=173778, W=173778, U=0, E=0)
+2026/10/22 20:52:42 - Text file output.0 - Finished processing (I=0, O=173779, R=173778, W=173778, U=0, E=0)
+2026/10/22 20:52:42 - transform_estat_tour_occ_nin3 - Pipeline duration : 0.836 seconds [  0.836" ]
+2026/10/22 20:52:42 - Hop - Pipeline 'transform_estat_tour_occ_nin3' completed.
+2026/10/22 20:52:42 - transform_estat_tour_occ_nin3 - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/22 20:58:18 - Hop - Pipeline opened.
+2026/10/22 20:58:18 - Hop - Launching pipeline [transform_estat_tour_occ_nin3]...
+2026/10/22 20:58:18 - Hop - Started executing pipeline 'transform_estat_tour_occ_nin3'.
+2026/10/22 20:58:18 - transform_estat_tour_occ_nin3 - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/22 20:58:18 - transform_estat_tour_occ_nin3 - Execution started for pipeline [transform_estat_tour_occ_nin3]
+2026/10/22 20:58:18 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_nin3.tsv'
+2026/10/22 20:58:19 - CSV file input.0 - Finished processing (I=28964, O=0, R=0, W=28963, U=0, E=0)
+2026/10/22 20:58:19 - Split dimensions.0 - Finished processing (I=0, O=0, R=28963, W=28963, U=0, E=0)
+2026/10/22 20:58:19 - Years to rows.0 - Finished processing (I=0, O=0, R=28963, W=173778, U=0, E=0)
+2026/10/22 20:58:19 - Extract value and flags.0 - Finished processing (I=0, O=0, R=173778, W=173778, U=0, E=0)
+2026/10/22 20:58:19 - Set data types.0 - Finished processing (I=0, O=0, R=173778, W=173778, U=0, E=0)
+2026/10/22 20:58:19 - Text file output.0 - Finished processing (I=0, O=173779, R=173778, W=173778, U=0, E=0)
+2026/10/22 20:58:19 - transform_estat_tour_occ_nin3 - Pipeline duration : 0.4 seconds [  0.400" ]
+2026/10/22 20:58:19 - Hop - Pipeline 'transform_estat_tour_occ_nin3' completed.
+2026/10/22 20:58:19 - transform_estat_tour_occ_nin3 - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/22 22:02:48 - Hop - Pipeline opened.
+2026/10/22 22:02:48 - Hop - Launching pipeline [transform_estat_tour_occ_nin2m]...
+2026/10/22 22:02:48 - Hop - Started executing pipeline 'transform_estat_tour_occ_nin2m'.
+2026/10/22 22:02:48 - transform_estat_tour_occ_nin2m - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/22 22:02:48 - transform_estat_tour_occ_nin2m - Execution started for pipeline [transform_estat_tour_occ_nin2m]
+2026/10/22 22:02:48 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_nin2m.tsv'
+2026/10/22 22:02:50 - CSV file input.0 - Finished processing (I=158161, O=0, R=0, W=158160, U=0, E=0)
+2026/10/22 22:02:50 - Split dimensions.0 - Finished processing (I=0, O=0, R=158160, W=158160, U=0, E=0)
+2026/10/22 22:02:50 - Years to rows.0 - Finished processing (I=0, O=0, R=158160, W=948960, U=0, E=0)
+2026/10/22 22:02:50 - Extract value and flags.0 - Finished processing (I=0, O=0, R=948960, W=948960, U=0, E=0)
+2026/10/22 22:02:50 - Set data types.0 - Finished processing (I=0, O=0, R=948960, W=948960, U=0, E=0)
+2026/10/22 22:02:50 - Text file output.0 - Finished processing (I=0, O=948961, R=948960, W=948960, U=0, E=0)
+2026/10/22 22:02:50 - transform_estat_tour_occ_nin2m - Pipeline duration : 1.807 seconds [  1.807" ]
+2026/10/22 22:02:50 - Hop - Pipeline 'transform_estat_tour_occ_nin2m' completed.
+2026/10/22 22:02:50 - transform_estat_tour_occ_nin2m - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/22 22:10:26 - Hop - Pipeline opened.
+2026/10/22 22:10:26 - Hop - Launching pipeline [transform_estat_tour_occ_nim]...
+2026/10/22 22:10:26 - Hop - Started executing pipeline 'transform_estat_tour_occ_nim'.
+2026/10/22 22:10:26 - transform_estat_tour_occ_nim - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/22 22:10:26 - transform_estat_tour_occ_nim - Execution started for pipeline [transform_estat_tour_occ_nim]
+2026/10/22 22:10:26 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_nim.tsv'
+2026/10/22 22:10:26 - CSV file input.0 - Finished processing (I=2027, O=0, R=0, W=2026, U=0, E=0)
+2026/10/22 22:10:26 - Split dimensions.0 - Finished processing (I=0, O=0, R=2026, W=2026, U=0, E=0)
+2026/10/22 22:10:27 - Periods to rows.0 - Finished processing (I=0, O=0, R=2026, W=891440, U=0, E=0)
+2026/10/22 22:10:28 - Extract value and flags.0 - Finished processing (I=0, O=0, R=891440, W=891440, U=0, E=0)
+2026/10/22 22:10:28 - Set data types.0 - Finished processing (I=0, O=0, R=891440, W=891440, U=0, E=0)
+2026/10/22 22:10:28 - Text file output.0 - Finished processing (I=0, O=891441, R=891440, W=891440, U=0, E=0)
+2026/10/22 22:10:28 - transform_estat_tour_occ_nim - Pipeline duration : 1.745 seconds [  1.745" ]
+2026/10/22 22:10:28 - Hop - Pipeline 'transform_estat_tour_occ_nim' completed.
+2026/10/22 22:10:28 - transform_estat_tour_occ_nim - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/22 22:20:49 - Hop - Pipeline opened.
+2026/10/22 22:20:49 - Hop - Launching pipeline [transform_estat_tour_occ_arm]...
+2026/10/22 22:20:49 - Hop - Started executing pipeline 'transform_estat_tour_occ_arm'.
+2026/10/22 22:20:49 - transform_estat_tour_occ_arm - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/22 22:20:49 - transform_estat_tour_occ_arm - Execution started for pipeline [transform_estat_tour_occ_arm]
+2026/10/22 22:20:49 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_arm.tsv'
+2026/10/22 22:20:49 - CSV file input.0 - Finished processing (I=2031, O=0, R=0, W=2030, U=0, E=0)
+2026/10/22 22:20:49 - Split dimensions.0 - Finished processing (I=0, O=0, R=2030, W=2030, U=0, E=0)
+2026/10/22 22:20:50 - Periods to rows.0 - Finished processing (I=0, O=0, R=2030, W=893200, U=0, E=0)
+2026/10/22 22:20:50 - Extract value and flags.0 - Finished processing (I=0, O=0, R=893200, W=893200, U=0, E=0)
+2026/10/22 22:20:50 - Set data types.0 - Finished processing (I=0, O=0, R=893200, W=893200, U=0, E=0)
+2026/10/22 22:20:50 - Text file output.0 - Finished processing (I=0, O=893201, R=893200, W=893200, U=0, E=0)
+2026/10/22 22:20:50 - transform_estat_tour_occ_arm - Pipeline duration : 1.439 seconds [  1.439" ]
+2026/10/22 22:20:50 - Hop - Pipeline 'transform_estat_tour_occ_arm' completed.
+2026/10/22 22:20:51 - transform_estat_tour_occ_arm - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/22 22:25:59 - Hop - Pipeline opened.
+2026/10/22 22:25:59 - Hop - Launching pipeline [transform_estat_tour_occ_arn2]...
+2026/10/22 22:25:59 - Hop - Started executing pipeline 'transform_estat_tour_occ_arn2'.
+2026/10/22 22:25:59 - transform_estat_tour_occ_arn2 - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/22 22:25:59 - transform_estat_tour_occ_arn2 - Execution started for pipeline [transform_estat_tour_occ_arn2]
+2026/10/22 22:25:59 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_arn2.tsv'
+2026/10/22 22:25:59 - CSV file input.0 - Finished processing (I=16369, O=0, R=0, W=16368, U=0, E=0)
+2026/10/22 22:26:00 - Split dimensions.0 - Finished processing (I=0, O=0, R=16368, W=16368, U=0, E=0)
+2026/10/22 22:26:00 - Years to rows.0 - Finished processing (I=0, O=0, R=16368, W=589248, U=0, E=0)
+2026/10/22 22:26:00 - Extract value and flags.0 - Finished processing (I=0, O=0, R=589248, W=589248, U=0, E=0)
+2026/10/22 22:26:00 - Set data types.0 - Finished processing (I=0, O=0, R=589248, W=589248, U=0, E=0)
+2026/10/22 22:26:00 - Text file output.0 - Finished processing (I=0, O=589249, R=589248, W=589248, U=0, E=0)
+2026/10/22 22:26:00 - transform_estat_tour_occ_arn2 - Pipeline duration : 1.08 seconds [  1.080" ]
+2026/10/22 22:26:00 - Hop - Pipeline 'transform_estat_tour_occ_arn2' completed.
+2026/10/22 22:26:00 - transform_estat_tour_occ_arn2 - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/22 22:31:33 - Hop - Pipeline opened.
+2026/10/22 22:31:33 - Hop - Launching pipeline [transform_estat_tour_ce_omn12]...
+2026/10/22 22:31:33 - Hop - Started executing pipeline 'transform_estat_tour_ce_omn12'.
+2026/10/22 22:31:33 - transform_estat_tour_ce_omn12 - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/22 22:31:33 - transform_estat_tour_ce_omn12 - Execution started for pipeline [transform_estat_tour_ce_omn12]
+2026/10/22 22:31:33 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_ce_omn12.tsv'
+2026/10/22 22:31:33 - CSV file input.0 - Finished processing (I=46087, O=0, R=0, W=46086, U=0, E=0)
+2026/10/22 22:31:34 - Split dimensions.0 - Finished processing (I=0, O=0, R=46086, W=46086, U=0, E=0)
+2026/10/22 22:31:34 - Years to rows.0 - Finished processing (I=0, O=0, R=46086, W=414774, U=0, E=0)
+2026/10/22 22:31:34 - Extract value and flags.0 - Finished processing (I=0, O=0, R=414774, W=414774, U=0, E=0)
+2026/10/22 22:31:34 - Set data types.0 - Finished processing (I=0, O=0, R=414774, W=414774, U=0, E=0)
+2026/10/22 22:31:34 - Text file output.0 - Finished processing (I=0, O=414775, R=414774, W=414774, U=0, E=0)
+2026/10/22 22:31:34 - transform_estat_tour_ce_omn12 - Pipeline duration : 0.816 seconds [  0.816" ]
+2026/10/22 22:31:34 - Hop - Pipeline 'transform_estat_tour_ce_omn12' completed.
+2026/10/22 22:31:34 - transform_estat_tour_ce_omn12 - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/22 22:36:30 - Hop - Pipeline opened.
+2026/10/22 22:36:30 - Hop - Launching pipeline [transform_estat_tour_ce_omr]...
+2026/10/22 22:36:30 - Hop - Started executing pipeline 'transform_estat_tour_ce_omr'.
+2026/10/22 22:36:30 - transform_estat_tour_ce_omr - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/22 22:36:30 - transform_estat_tour_ce_omr - Execution started for pipeline [transform_estat_tour_ce_omr]
+2026/10/22 22:36:30 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_ce_omr.tsv'
+2026/10/22 22:36:30 - CSV file input.0 - Finished processing (I=3745, O=0, R=0, W=3744, U=0, E=0)
+2026/10/22 22:36:30 - Split dimensions.0 - Finished processing (I=0, O=0, R=3744, W=3744, U=0, E=0)
+2026/10/22 22:36:30 - Years to rows.0 - Finished processing (I=0, O=0, R=3744, W=33696, U=0, E=0)
+2026/10/22 22:36:30 - Extract value and flags.0 - Finished processing (I=0, O=0, R=33696, W=33696, U=0, E=0)
+2026/10/22 22:36:30 - Set data types.0 - Finished processing (I=0, O=0, R=33696, W=33696, U=0, E=0)
+2026/10/22 22:36:30 - Text file output.0 - Finished processing (I=0, O=33697, R=33696, W=33696, U=0, E=0)
+2026/10/22 22:36:30 - transform_estat_tour_ce_omr - Pipeline duration : 0.109 seconds [  0.109" ]
+2026/10/22 22:36:30 - Hop - Pipeline 'transform_estat_tour_ce_omr' completed.
+2026/10/22 22:36:30 - transform_estat_tour_ce_omr - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/22 22:42:29 - Hop - Pipeline opened.
+2026/10/22 22:42:29 - Hop - Launching pipeline [transform_estat_tour_ce_oan3]...
+2026/10/22 22:42:29 - Hop - Started executing pipeline 'transform_estat_tour_ce_oan3'.
+2026/10/22 22:42:29 - transform_estat_tour_ce_oan3 - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/22 22:42:29 - transform_estat_tour_ce_oan3 - Execution started for pipeline [transform_estat_tour_ce_oan3]
+2026/10/22 22:42:29 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_ce_oan3.tsv'
+2026/10/22 22:42:29 - CSV file input.0 - Finished processing (I=3883, O=0, R=0, W=3882, U=0, E=0)
+2026/10/22 22:42:29 - Split dimensions.0 - Finished processing (I=0, O=0, R=3882, W=3882, U=0, E=0)
+2026/10/22 22:42:29 - Years to rows.0 - Finished processing (I=0, O=0, R=3882, W=31056, U=0, E=0)
+2026/10/22 22:42:30 - Extract value and flags.0 - Finished processing (I=0, O=0, R=31056, W=31056, U=0, E=0)
+2026/10/22 22:42:30 - Set data types.0 - Finished processing (I=0, O=0, R=31056, W=31056, U=0, E=0)
+2026/10/22 22:42:30 - Text file output.0 - Finished processing (I=0, O=31057, R=31056, W=31056, U=0, E=0)
+2026/10/22 22:42:30 - transform_estat_tour_ce_oan3 - Pipeline duration : 0.108 seconds [  0.108" ]
+2026/10/22 22:42:30 - Hop - Pipeline 'transform_estat_tour_ce_oan3' completed.
+2026/10/22 22:42:30 - transform_estat_tour_ce_oan3 - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/22 22:51:58 - Hop - Pipeline opened.
+2026/10/22 22:51:58 - Hop - Launching pipeline [transform_estat_tour_cap_nuts2]...
+2026/10/22 22:51:58 - Hop - Started executing pipeline 'transform_estat_tour_cap_nuts2'.
+2026/10/22 22:51:58 - transform_estat_tour_cap_nuts2 - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/22 22:51:58 - transform_estat_tour_cap_nuts2 - Execution started for pipeline [transform_estat_tour_cap_nuts2]
+2026/10/22 22:51:58 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_cap_nuts2.tsv'
+2026/10/22 22:51:59 - CSV file input.0 - Finished processing (I=14922, O=0, R=0, W=14921, U=0, E=0)
+2026/10/22 22:51:59 - Split dimensions.0 - Finished processing (I=0, O=0, R=14921, W=14921, U=0, E=0)
+2026/10/22 22:51:59 - Years to rows.0 - Finished processing (I=0, O=0, R=14921, W=552077, U=0, E=0)
+2026/10/22 22:51:59 - Extract value and flags.0 - Finished processing (I=0, O=0, R=552077, W=552077, U=0, E=0)
+2026/10/22 22:51:59 - Set data types.0 - Finished processing (I=0, O=0, R=552077, W=552077, U=0, E=0)
+2026/10/22 22:51:59 - Text file output.0 - Finished processing (I=0, O=552078, R=552077, W=552077, U=0, E=0)
+2026/10/22 22:51:59 - transform_estat_tour_cap_nuts2 - Pipeline duration : 1.0 seconds [  1.000" ]
+2026/10/22 22:51:59 - Hop - Pipeline 'transform_estat_tour_cap_nuts2' completed.
+2026/10/22 22:51:59 - transform_estat_tour_cap_nuts2 - Execution finished on a local pipeline engine with run configuration 'local'
+2026/10/22 22:55:45 - Hop - Pipeline opened.
+2026/10/22 22:55:45 - Hop - Launching pipeline [transform_estat_tour_occ_anor2]...
+2026/10/22 22:55:45 - Hop - Started executing pipeline 'transform_estat_tour_occ_anor2'.
+2026/10/22 22:55:46 - transform_estat_tour_occ_anor2 - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'
+2026/10/22 22:55:46 - transform_estat_tour_occ_anor2 - Execution started for pipeline [transform_estat_tour_occ_anor2]
+2026/10/22 22:55:46 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_anor2.tsv'
+2026/10/22 22:55:46 - CSV file input.0 - Finished processing (I=1080, O=0, R=0, W=1079, U=0, E=0)
+2026/10/22 22:55:46 - Split dimensions.0 - Finished processing (I=0, O=0, R=1079, W=1079, U=0, E=0)
+2026/10/22 22:55:46 - Years to rows.0 - Finished processing (I=0, O=0, R=1079, W=15106, U=0, E=0)
+2026/10/22 22:55:46 - Extract value and flags.0 - Finished processing (I=0, O=0, R=15106, W=15106, U=0, E=0)
+2026/10/22 22:55:46 - Set data types.0 - Finished processing (I=0, O=0, R=15106, W=15106, U=0, E=0)
+2026/10/22 22:55:46 - Text file output.0 - Finished processing (I=0, O=15107, R=15106, W=15106, U=0, E=0)
+2026/10/22 22:55:46 - transform_estat_tour_occ_anor2 - Pipeline duration : 0.081 seconds [  0.081" ]
+2026/10/22 22:55:46 - Hop - Pipeline 'transform_estat_tour_occ_anor2' completed.
+2026/10/22 22:55:46 - transform_estat_tour_occ_anor2 - Execution finished on a local pipeline engine with run configuration 'local'

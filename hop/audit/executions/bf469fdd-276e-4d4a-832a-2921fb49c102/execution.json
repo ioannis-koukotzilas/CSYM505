@@ -1,0 +1,16 @@
+{
+  "name" : "Periods to rows",
+  "filename" : null,
+  "id" : "bf469fdd-276e-4d4a-832a-2921fb49c102",
+  "parentId" : "b02e8d53-5ac0-421f-a7b9-db29dc76fa3e",
+  "executionType" : "Transform",
+  "executorXml" : null,
+  "metadataJson" : null,
+  "runConfigurationName" : null,
+  "logLevel" : "BASIC",
+  "parameterValues" : { },
+  "environmentDetails" : { },
+  "registrationDate" : 1792696849517,
+  "executionStartDate" : 1792696849475,
+  "copyNr" : "0"
+}

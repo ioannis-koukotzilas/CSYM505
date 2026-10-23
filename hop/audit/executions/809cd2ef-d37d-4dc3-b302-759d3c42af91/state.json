@@ -1,0 +1,17 @@
+{
+  "executionType" : "Transform",
+  "parentId" : "cbca3442-d263-439d-82fd-a584cdad582d",
+  "id" : "809cd2ef-d37d-4dc3-b302-759d3c42af91",
+  "name" : "CSV file input",
+  "copyNr" : "0",
+  "loggingText" : null,
+  "lastLogLineNr" : null,
+  "metrics" : [ ],
+  "statusDescription" : "Finished",
+  "updateTime" : 1792695770594,
+  "childIds" : [ ],
+  "details" : { },
+  "failed" : false,
+  "executionEndDate" : 1792695770343,
+  "containerId" : "63a01023-eb42-4512-97be-d348fc62916a"
+}

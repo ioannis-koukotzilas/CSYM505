@@ -1,0 +1,16 @@
+{
+  "name" : "Extract value and flags",
+  "filename" : null,
+  "id" : "69281447-5548-477d-93fb-84e52195aefe",
+  "parentId" : "2cfca472-7e91-40e9-847f-eaff06a3023a",
+  "executionType" : "Transform",
+  "executorXml" : null,
+  "metadataJson" : null,
+  "runConfigurationName" : null,
+  "logLevel" : "BASIC",
+  "parameterValues" : { },
+  "environmentDetails" : { },
+  "registrationDate" : 1792696226337,
+  "executionStartDate" : 1792696226267,
+  "copyNr" : "0"
+}

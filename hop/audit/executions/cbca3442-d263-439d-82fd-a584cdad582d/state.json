@@ -1,0 +1,114 @@
+{
+  "executionType" : "Pipeline",
+  "parentId" : null,
+  "id" : "cbca3442-d263-439d-82fd-a584cdad582d",
+  "name" : "transform_estat_tour_occ_nin2m",
+  "copyNr" : null,
+  "loggingText" : "2026/10/22 22:02:48 - transform_estat_tour_occ_nin2m - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'\n2026/10/22 22:02:48 - transform_estat_tour_occ_nin2m - Execution started for pipeline [transform_estat_tour_occ_nin2m]\n2026/10/22 22:02:48 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_nin2m.tsv'\n2026/10/22 22:02:50 - CSV file input.0 - Finished processing (I=158161, O=0, R=0, W=158160, U=0, E=0)\n2026/10/22 22:02:50 - Split dimensions.0 - Finished processing (I=0, O=0, R=158160, W=158160, U=0, E=0)\n2026/10/22 22:02:50 - Years to rows.0 - Finished processing (I=0, O=0, R=158160, W=948960, U=0, E=0)\n2026/10/22 22:02:50 - Extract value and flags.0 - Finished processing (I=0, O=0, R=948960, W=948960, U=0, E=0)\n2026/10/22 22:02:50 - Set data types.0 - Finished processing (I=0, O=0, R=948960, W=948960, U=0, E=0)\n2026/10/22 22:02:50 - Text file output.0 - Finished processing (I=0, O=948961, R=948960, W=948960, U=0, E=0)\n2026/10/22 22:02:50 - transform_estat_tour_occ_nin2m - Pipeline duration : 1.807 seconds [  1.807\" ]\n",
+  "lastLogLineNr" : 131,
+  "metrics" : [ {
+    "componentName" : "CSV file input",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 0,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 104881,
+      "Input" : 158161,
+      "Written" : 158160,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 1508,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Split dimensions",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 158160,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 99597,
+      "Input" : 0,
+      "Written" : 158160,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 1588,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Years to rows",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 158160,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 564857,
+      "Input" : 0,
+      "Written" : 948960,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 1680,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Extract value and flags",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 948960,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 552685,
+      "Input" : 0,
+      "Written" : 948960,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 1717,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Set data types",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 948960,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 548849,
+      "Input" : 0,
+      "Written" : 948960,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 1729,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Text file output",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 948960,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 544129,
+      "Input" : 0,
+      "Written" : 948960,
+      "Updated" : 0,
+      "Output" : 948961,
+      "Data volume out" : 45804913,
+      "Duration" : 1744,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  } ],
+  "statusDescription" : "Finished",
+  "updateTime" : 1792695770581,
+  "childIds" : [ "809cd2ef-d37d-4dc3-b302-759d3c42af91", "faadf1a7-8c04-4caa-9f0c-bf3e7df9a258", "eda42368-c51c-4a66-a43f-953c88b40da8", "281d9eb5-167b-4c17-aa83-d8719cec5d24", "d86cc3e6-0be9-44a2-a5c4-4bbe2fa6cdf7", "0cee12dd-bbc5-4132-b49e-892593e3dfc0" ],
+  "details" : { },
+  "failed" : false,
+  "executionEndDate" : 1792695770581,
+  "containerId" : "63a01023-eb42-4512-97be-d348fc62916a"
+}

@@ -1,0 +1,34 @@
+2026/10/22 19:18:41 - download_tour_occ_nin2m - Start of workflow execution
+2026/10/22 19:18:41 - download_tour_occ_nin2m - Starting action [Start]
+2026/10/22 19:18:41 - download_tour_occ_nin2m - Finished action [Start] (result=[true])
+2026/10/22 19:18:41 - download_tour_occ_nin2m - Starting action [Download tour_occ_nin2m]
+2026/10/22 19:18:41 - Download tour_occ_nin2m - Start of HTTP action.
+2026/10/22 19:18:41 - Download tour_occ_nin2m - Connecting to URL: https://ec.europa.eu/eurostat/api/dissemination/sdmx/3.0/data/dataflow/ESTAT/TOUR_OCC_NIN2M/1.0?format=csvdata&formatVersion=2.0&compress=false
+2026/10/22 19:18:41 - Download tour_occ_nin2m - ERROR: Error getting file from HTTP : 
+2026/10/22 19:18:41 - Download tour_occ_nin2m - 
+2026/10/22 19:18:41 - Download tour_occ_nin2m - java.io.IOException: Parent directory file:///Users/ioannis/Documents/CSYM505/etl/data/raw does not exist!
+2026/10/22 19:18:41 - Download tour_occ_nin2m - Parent directory file:///Users/ioannis/Documents/CSYM505/etl/data/raw does not exist!
+2026/10/22 19:18:41 - Download tour_occ_nin2m - 
+2026/10/22 19:18:41 - Download tour_occ_nin2m - Parent directory file:///Users/ioannis/Documents/CSYM505/etl/data/raw does not exist!
+2026/10/22 19:18:41 - Download tour_occ_nin2m - ERROR: org.apache.hop.core.exception.HopFileException: 
+2026/10/22 19:18:41 - Download tour_occ_nin2m - 
+2026/10/22 19:18:41 - Download tour_occ_nin2m - java.io.IOException: Parent directory file:///Users/ioannis/Documents/CSYM505/etl/data/raw does not exist!
+2026/10/22 19:18:41 - Download tour_occ_nin2m - Parent directory file:///Users/ioannis/Documents/CSYM505/etl/data/raw does not exist!
+2026/10/22 19:18:41 - Download tour_occ_nin2m - 
+2026/10/22 19:18:41 - Download tour_occ_nin2m - Parent directory file:///Users/ioannis/Documents/CSYM505/etl/data/raw does not exist!
+2026/10/22 19:18:41 - Download tour_occ_nin2m - 
+2026/10/22 19:18:41 - Download tour_occ_nin2m - 	at org.apache.hop.core.vfs.HopVfs.getOutputStream(HopVfs.java:511)
+2026/10/22 19:18:41 - Download tour_occ_nin2m - 	at org.apache.hop.workflow.actions.http.ActionHttp.execute(ActionHttp.java:316)
+2026/10/22 19:18:41 - Download tour_occ_nin2m - 	at org.apache.hop.workflow.Workflow.executeFromStart(Workflow.java:814)
+2026/10/22 19:18:41 - Download tour_occ_nin2m - 	at org.apache.hop.workflow.Workflow.executeFromStart(Workflow.java:987)
+2026/10/22 19:18:41 - Download tour_occ_nin2m - 	at org.apache.hop.workflow.Workflow.executeFromStart(Workflow.java:506)
+2026/10/22 19:18:41 - Download tour_occ_nin2m - 	at org.apache.hop.workflow.Workflow.startExecution(Workflow.java:315)
+2026/10/22 19:18:41 - Download tour_occ_nin2m - 	at org.apache.hop.workflow.engines.local.LocalWorkflowEngine.startExecution(LocalWorkflowEngine.java:264)
+2026/10/22 19:18:41 - Download tour_occ_nin2m - 	at org.apache.hop.ui.hopgui.file.workflow.HopGuiWorkflowGraph.lambda$start$25(HopGuiWorkflowGraph.java:5081)
+2026/10/22 19:18:41 - Download tour_occ_nin2m - 	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026/10/22 19:18:41 - Download tour_occ_nin2m - Caused by: java.io.IOException: Parent directory file:///Users/ioannis/Documents/CSYM505/etl/data/raw does not exist!
+2026/10/22 19:18:41 - Download tour_occ_nin2m - 	at org.apache.hop.core.vfs.HopVfs.getOutputStream(HopVfs.java:464)
+2026/10/22 19:18:41 - Download tour_occ_nin2m - 	at org.apache.hop.core.vfs.HopVfs.getOutputStream(HopVfs.java:509)
+2026/10/22 19:18:41 - Download tour_occ_nin2m - 	... 8 more
+2026/10/22 19:18:41 - download_tour_occ_nin2m - Finished action [Download tour_occ_nin2m] (result=[false])
+2026/10/22 19:18:41 - download_tour_occ_nin2m - Workflow execution finished

@@ -1,0 +1,17 @@
+{
+  "executionType" : "Transform",
+  "parentId" : "66641fec-8cea-4f8d-8f28-16bb8b830997",
+  "id" : "dd17c0ff-127a-48ea-aac5-0e0678d0b1ed",
+  "name" : "Split dimensions",
+  "copyNr" : "0",
+  "loggingText" : null,
+  "lastLogLineNr" : null,
+  "metrics" : [ ],
+  "statusDescription" : "Finished",
+  "updateTime" : 1792698946083,
+  "childIds" : [ ],
+  "details" : { },
+  "failed" : false,
+  "executionEndDate" : 1792698946053,
+  "containerId" : "4e50ecbc-ddbd-475e-9f3f-4888a8b1e8ba"
+}

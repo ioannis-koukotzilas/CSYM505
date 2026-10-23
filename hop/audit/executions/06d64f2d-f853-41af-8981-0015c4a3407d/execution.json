@@ -1,0 +1,16 @@
+{
+  "name" : "CSV file input",
+  "filename" : null,
+  "id" : "06d64f2d-f853-41af-8981-0015c4a3407d",
+  "parentId" : "66641fec-8cea-4f8d-8f28-16bb8b830997",
+  "executionType" : "Transform",
+  "executorXml" : null,
+  "metadataJson" : null,
+  "runConfigurationName" : null,
+  "logLevel" : "BASIC",
+  "parameterValues" : { },
+  "environmentDetails" : { },
+  "registrationDate" : 1792698946016,
+  "executionStartDate" : 1792698946000,
+  "copyNr" : "0"
+}

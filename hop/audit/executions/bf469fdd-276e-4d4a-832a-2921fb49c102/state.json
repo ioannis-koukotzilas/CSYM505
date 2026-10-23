@@ -1,0 +1,17 @@
+{
+  "executionType" : "Transform",
+  "parentId" : "b02e8d53-5ac0-421f-a7b9-db29dc76fa3e",
+  "id" : "bf469fdd-276e-4d4a-832a-2921fb49c102",
+  "name" : "Periods to rows",
+  "copyNr" : "0",
+  "loggingText" : null,
+  "lastLogLineNr" : null,
+  "metrics" : [ ],
+  "statusDescription" : "Finished",
+  "updateTime" : 1792696850927,
+  "childIds" : [ ],
+  "details" : { },
+  "failed" : false,
+  "executionEndDate" : 1792696850887,
+  "containerId" : "6ab5cf1d-13b4-43a9-8c69-18bc5dd9df36"
+}

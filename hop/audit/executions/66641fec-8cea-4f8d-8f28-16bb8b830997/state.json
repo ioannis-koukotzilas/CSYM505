@@ -1,0 +1,114 @@
+{
+  "executionType" : "Pipeline",
+  "parentId" : null,
+  "id" : "66641fec-8cea-4f8d-8f28-16bb8b830997",
+  "name" : "transform_estat_tour_occ_anor2",
+  "copyNr" : null,
+  "loggingText" : "2026/10/22 22:55:46 - transform_estat_tour_occ_anor2 - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'\n2026/10/22 22:55:46 - transform_estat_tour_occ_anor2 - Execution started for pipeline [transform_estat_tour_occ_anor2]\n2026/10/22 22:55:46 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_anor2.tsv'\n2026/10/22 22:55:46 - CSV file input.0 - Finished processing (I=1080, O=0, R=0, W=1079, U=0, E=0)\n2026/10/22 22:55:46 - Split dimensions.0 - Finished processing (I=0, O=0, R=1079, W=1079, U=0, E=0)\n2026/10/22 22:55:46 - Years to rows.0 - Finished processing (I=0, O=0, R=1079, W=15106, U=0, E=0)\n2026/10/22 22:55:46 - Extract value and flags.0 - Finished processing (I=0, O=0, R=15106, W=15106, U=0, E=0)\n2026/10/22 22:55:46 - Set data types.0 - Finished processing (I=0, O=0, R=15106, W=15106, U=0, E=0)\n2026/10/22 22:55:46 - Text file output.0 - Finished processing (I=0, O=15107, R=15106, W=15106, U=0, E=0)\n2026/10/22 22:55:46 - transform_estat_tour_occ_anor2 - Pipeline duration : 0.081 seconds [  0.081\" ]\n",
+  "lastLogLineNr" : 251,
+  "metrics" : [ {
+    "componentName" : "CSV file input",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 0,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 56842,
+      "Input" : 1080,
+      "Written" : 1079,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 19,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Split dimensions",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 1079,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 41500,
+      "Input" : 0,
+      "Written" : 1079,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 26,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Years to rows",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 1079,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 457758,
+      "Input" : 0,
+      "Written" : 15106,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 33,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Extract value and flags",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 15106,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 328391,
+      "Input" : 0,
+      "Written" : 15106,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 46,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Set data types",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 15106,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 308286,
+      "Input" : 0,
+      "Written" : 15106,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 49,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Text file output",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 15106,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 285038,
+      "Input" : 0,
+      "Written" : 15106,
+      "Updated" : 0,
+      "Output" : 15107,
+      "Data volume out" : 473165,
+      "Duration" : 53,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  } ],
+  "statusDescription" : "Finished",
+  "updateTime" : 1792698946081,
+  "childIds" : [ "06d64f2d-f853-41af-8981-0015c4a3407d", "dd17c0ff-127a-48ea-aac5-0e0678d0b1ed", "c19e0d6b-9b8b-431a-b9cb-ae0e57a1da0e", "10958173-027c-4159-a155-d473e18d824f", "735cc05c-a5e2-4c57-a887-7873df187578", "d8d76382-43f3-416c-8694-588f39555662" ],
+  "details" : { },
+  "failed" : false,
+  "executionEndDate" : 1792698946081,
+  "containerId" : "4e50ecbc-ddbd-475e-9f3f-4888a8b1e8ba"
+}

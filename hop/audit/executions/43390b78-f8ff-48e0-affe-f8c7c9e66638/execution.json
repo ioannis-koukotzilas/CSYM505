@@ -1,0 +1,16 @@
+{
+  "name" : "Download tour_occ_nin2m",
+  "filename" : null,
+  "id" : "43390b78-f8ff-48e0-affe-f8c7c9e66638",
+  "parentId" : "3359f18c-39c9-4c6d-99c2-fe869698b34b",
+  "executionType" : "Action",
+  "executorXml" : null,
+  "metadataJson" : null,
+  "runConfigurationName" : null,
+  "logLevel" : "BASIC",
+  "parameterValues" : { },
+  "environmentDetails" : { },
+  "registrationDate" : 1792685954983,
+  "executionStartDate" : 1792685954983,
+  "copyNr" : null
+}

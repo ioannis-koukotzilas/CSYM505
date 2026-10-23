@@ -1,0 +1,28 @@
+{
+  "executionType" : "Action",
+  "dataSetMeta" : {
+    "setKey" : "43390b78-f8ff-48e0-affe-f8c7c9e66638",
+    "logChannelId" : "43390b78-f8ff-48e0-affe-f8c7c9e66638",
+    "name" : "Download tour_occ_nin2m",
+    "fieldName" : null,
+    "sampleDescription" : null,
+    "copyNr" : "1",
+    "description" : "action"
+  },
+  "finished" : true,
+  "collectionDate" : 1792685954988,
+  "parentId" : "3359f18c-39c9-4c6d-99c2-fe869698b34b",
+  "ownerId" : "43390b78-f8ff-48e0-affe-f8c7c9e66638",
+  "setMetaData" : {
+    "result" : {
+      "setKey" : "result",
+      "logChannelId" : "43390b78-f8ff-48e0-affe-f8c7c9e66638",
+      "name" : "Download tour_occ_nin2m",
+      "fieldName" : null,
+      "sampleDescription" : null,
+      "copyNr" : "1",
+      "description" : "Result details of action"
+    }
+  },
+  "rowsBinaryGzipBase64Encoded" : "H4sIAAAAAAAA/2NgYGBkYCtKLS7NKWFgYGCCYhBgzk6t/I8FAKUY9UCEDkjRo6Y1UPUMrKl5uqHBjAwMSALxocFABq9raVF+Qaq+Y0lGal4xA5IlrGWJOaWpNLOGGUSwQ7xnD1ablphTnApisaUWFeUXgVUxGoJIjuKS/IKC1BQkdQB/Sv8eHgEAAA=="
+}

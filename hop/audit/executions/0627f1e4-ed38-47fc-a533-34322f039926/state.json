@@ -1,0 +1,114 @@
+{
+  "executionType" : "Pipeline",
+  "parentId" : null,
+  "id" : "0627f1e4-ed38-47fc-a533-34322f039926",
+  "name" : "transform_estat_tour_occ_nin3",
+  "copyNr" : null,
+  "loggingText" : "2026/10/22 20:52:41 - transform_estat_tour_occ_nin3 - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'\n2026/10/22 20:52:41 - transform_estat_tour_occ_nin3 - Execution started for pipeline [transform_estat_tour_occ_nin3]\n2026/10/22 20:52:41 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_occ_nin3.tsv'\n2026/10/22 20:52:42 - CSV file input.0 - Finished processing (I=28964, O=0, R=0, W=28963, U=0, E=0)\n2026/10/22 20:52:42 - Split dimensions.0 - Finished processing (I=0, O=0, R=28963, W=28963, U=0, E=0)\n2026/10/22 20:52:42 - Years to rows.0 - Finished processing (I=0, O=0, R=28963, W=173778, U=0, E=0)\n2026/10/22 20:52:42 - Extract value and flags.0 - Finished processing (I=0, O=0, R=173778, W=173778, U=0, E=0)\n2026/10/22 20:52:42 - Set data types.0 - Finished processing (I=0, O=0, R=173778, W=173778, U=0, E=0)\n2026/10/22 20:52:42 - Text file output.0 - Finished processing (I=0, O=173779, R=173778, W=173778, U=0, E=0)\n2026/10/22 20:52:42 - transform_estat_tour_occ_nin3 - Pipeline duration : 0.836 seconds [  0.836\" ]\n",
+  "lastLogLineNr" : 101,
+  "metrics" : [ {
+    "componentName" : "CSV file input",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 0,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 102346,
+      "Input" : 28964,
+      "Written" : 28963,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 283,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Split dimensions",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 28963,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 49341,
+      "Input" : 0,
+      "Written" : 28963,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 587,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Years to rows",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 28963,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 248254,
+      "Input" : 0,
+      "Written" : 173778,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 700,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Extract value and flags",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 173778,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 239034,
+      "Input" : 0,
+      "Written" : 173778,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 727,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Set data types",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 173778,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 230475,
+      "Input" : 0,
+      "Written" : 173778,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 754,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Text file output",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 173778,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 223366,
+      "Input" : 0,
+      "Written" : 173778,
+      "Updated" : 0,
+      "Output" : 173779,
+      "Data volume out" : 8527876,
+      "Duration" : 778,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  } ],
+  "statusDescription" : "Finished",
+  "updateTime" : 1792691562771,
+  "childIds" : [ "b402aedc-8b96-419f-9c29-3a6b5f674b78", "bed2a284-8be2-45e3-8d89-5c30fab08df8", "4d986ec7-11c9-4040-88d4-2ff014702e4b", "e2f393bd-9b87-4b02-9ca8-df567d2045df", "b8ed0bc5-8022-4ec7-ac77-4153f946960b", "470a9c2c-05ae-4b76-9a0d-a0f3a8fc6677" ],
+  "details" : { },
+  "failed" : false,
+  "executionEndDate" : 1792691562770,
+  "containerId" : "4f8bb919-9fa5-472d-b944-e42bf9ba5bf2"
+}

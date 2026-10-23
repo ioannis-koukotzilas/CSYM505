@@ -1,0 +1,16 @@
+{
+  "name" : "Split dimensions",
+  "filename" : null,
+  "id" : "a860d22e-5a69-4dcb-906c-a92b402aa383",
+  "parentId" : "156ef7e8-16b7-4cf2-806a-278807913fe7",
+  "executionType" : "Transform",
+  "executorXml" : null,
+  "metadataJson" : null,
+  "runConfigurationName" : null,
+  "logLevel" : "BASIC",
+  "parameterValues" : { },
+  "environmentDetails" : { },
+  "registrationDate" : 1792697493430,
+  "executionStartDate" : 1792697493411,
+  "copyNr" : "0"
+}

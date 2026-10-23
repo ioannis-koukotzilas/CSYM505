@@ -1,0 +1,39 @@
+namespace CSYM505.ORM.Context
+{
+    using CSYM505.Model.Entities;
+    using Microsoft.EntityFrameworkCore;
+
+    public class AppDbContext : DbContext
+    {
+        public DbSet<AnnualAccommodationNights> AnnualAccommodationNights { get; set; } = null!;
+
+        public DbSet<MonthlyAccommodationNights> MonthlyAccommodationNights { get; set; } = null!;
+
+        public DbSet<NationalMonthlyAccommodationNights> NationalMonthlyAccommodationNights { get; set; } = null!;
+
+        public DbSet<NationalMonthlyAccommodationArrivals> NationalMonthlyAccommodationArrivals { get; set; } = null!;
+
+        public DbSet<AnnualAccommodationArrivals> AnnualAccommodationArrivals { get; set; } = null!;
+
+        public DbSet<MonthlyPlatformActivity> MonthlyPlatformActivity { get; set; } = null!;
+
+        public DbSet<NationalMonthlyPlatformActivity> NationalMonthlyPlatformActivity { get; set; } = null!;
+
+        public DbSet<AnnualPlatformGuestNights> AnnualPlatformGuestNights { get; set; } = null!;
+
+        public DbSet<AnnualAccommodationCapacity> AnnualAccommodationCapacity { get; set; } = null!;
+
+        public DbSet<AnnualHotelOccupancy> AnnualHotelOccupancy { get; set; } = null!;
+
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "executionType" : "Workflow",
+  "parentId" : null,
+  "id" : "3359f18c-39c9-4c6d-99c2-fe869698b34b",
+  "name" : "download_tour_occ_nin2m",
+  "copyNr" : null,
+  "loggingText" : "2026/10/22 19:19:14 - download_tour_occ_nin2m - Start of workflow execution\n2026/10/22 19:19:14 - download_tour_occ_nin2m - Starting action [Start]\n2026/10/22 19:19:14 - download_tour_occ_nin2m - Finished action [Start] (result=[true])\n2026/10/22 19:19:14 - download_tour_occ_nin2m - Starting action [Download tour_occ_nin2m]\n2026/10/22 19:19:14 - Download tour_occ_nin2m - Start of HTTP action.\n2026/10/22 19:19:14 - Download tour_occ_nin2m - Connecting to URL: https://ec.europa.eu/eurostat/api/dissemination/sdmx/3.0/data/dataflow/ESTAT/TOUR_OCC_NIN2M/1.0?format=csvdata&formatVersion=2.0&compress=false\n2026/10/22 19:19:14 - Download tour_occ_nin2m - ERROR: Error getting file from HTTP : \n2026/10/22 19:19:14 - Download tour_occ_nin2m - \n2026/10/22 19:19:14 - Download tour_occ_nin2m - java.io.IOException: Parent directory file:///Users/ioannis/Documents/CSYM505/etl/data/raw does not exist!\n2026/10/22 19:19:14 - Download tour_occ_nin2m - Parent directory file:///Users/ioannis/Documents/CSYM505/etl/data/raw does not exist!\n2026/10/22 19:19:14 - Download tour_occ_nin2m - \n2026/10/22 19:19:14 - Download tour_occ_nin2m - Parent directory file:///Users/ioannis/Documents/CSYM505/etl/data/raw does not exist!\n2026/10/22 19:19:14 - Download tour_occ_nin2m - ERROR: org.apache.hop.core.exception.HopFileException: \n2026/10/22 19:19:14 - Download tour_occ_nin2m - \n2026/10/22 19:19:14 - Download tour_occ_nin2m - java.io.IOException: Parent directory file:///Users/ioannis/Documents/CSYM505/etl/data/raw does not exist!\n2026/10/22 19:19:14 - Download tour_occ_nin2m - Parent directory file:///Users/ioannis/Documents/CSYM505/etl/data/raw does not exist!\n2026/10/22 19:19:14 - Download tour_occ_nin2m - \n2026/10/22 19:19:14 - Download tour_occ_nin2m - Parent directory file:///Users/ioannis/Documents/CSYM505/etl/data/raw does not exist!\n2026/10/22 19:19:14 - Download tour_occ_nin2m - \n2026/10/22 19:19:14 - Download tour_occ_nin2m - \tat org.apache.hop.core.vfs.HopVfs.getOutputStream(HopVfs.java:",
+  "lastLogLineNr" : 55,
+  "metrics" : [ ],
+  "statusDescription" : "Finished (with errors)",
+  "updateTime" : 1792685954994,
+  "childIds" : [ "cd14319d-8619-4439-ac18-afbd4a24e0f5", "43390b78-f8ff-48e0-affe-f8c7c9e66638" ],
+  "details" : { },
+  "failed" : true,
+  "executionEndDate" : 1792685954992,
+  "containerId" : null
+}

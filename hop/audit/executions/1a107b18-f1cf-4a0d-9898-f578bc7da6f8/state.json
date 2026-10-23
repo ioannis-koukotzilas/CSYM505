@@ -1,0 +1,17 @@
+{
+  "executionType" : "Workflow",
+  "parentId" : null,
+  "id" : "1a107b18-f1cf-4a0d-9898-f578bc7da6f8",
+  "name" : "download_tour_occ_nin2m",
+  "copyNr" : null,
+  "loggingText" : "2026/10/22 19:20:26 - download_tour_occ_nin2m - Start of workflow execution\n2026/10/22 19:20:26 - download_tour_occ_nin2m - Starting action [Start]\n2026/10/22 19:20:26 - download_tour_occ_nin2m - Finished action [Start] (result=[true])\n2026/10/22 19:20:26 - download_tour_occ_nin2m - Starting action [Download tour_occ_nin2m]\n2026/10/22 19:20:26 - Download tour_occ_nin2m - Start of HTTP action.\n2026/10/22 19:20:26 - Download tour_occ_nin2m - Connecting to URL: https://ec.europa.eu/eurostat/api/dissemination/sdmx/3.0/data/dataflow/ESTAT/TOUR_OCC_NIN2M/1.0?format=csvdata&formatVersion=2.0&compress=false\n2026/10/22 19:20:27 - Download tour_occ_nin2m - ERROR: I was unable to save the HTTP result to file because of a I/O error: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target\n2026/10/22 19:20:27 - Download tour_occ_nin2m - ERROR: javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target\n2026/10/22 19:20:27 - Download tour_occ_nin2m - \tat java.base/sun.security.ssl.Alert.createSSLException(Alert.java:130)\n2026/10/22 19:20:27 - Download tour_occ_nin2m - \tat java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:378)\n2026/10/22 19:20:27 - Download tour_occ_nin2m - \tat java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321)\n2026/10/22 19:20:27 - Download tour_occ_nin2m - \tat java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:316)\n2026/10/22 19:20:27 - Download tour_occ_nin2m - \tat java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.checkServerCerts(CertificateMessage.java:1318)\n2026/10/22 19:20:27 - Download tour_occ_nin2m - \tat java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.onConsumeCertificate(CertificateMessage.java:1195)\n2026/10/22 19:20:27 - Download tour_",
+  "lastLogLineNr" : 69,
+  "metrics" : [ ],
+  "statusDescription" : "Finished (with errors)",
+  "updateTime" : 1792686027252,
+  "childIds" : [ "b9d06e51-49bf-4f94-a2e9-6b705d4c14a1", "44fa4fc9-c20a-4a23-8c67-2b831f7f04b9" ],
+  "details" : { },
+  "failed" : true,
+  "executionEndDate" : 1792686027252,
+  "containerId" : null
+}

@@ -1,0 +1,114 @@
+{
+  "executionType" : "Pipeline",
+  "parentId" : null,
+  "id" : "156ef7e8-16b7-4cf2-806a-278807913fe7",
+  "name" : "transform_estat_tour_ce_omn12",
+  "copyNr" : null,
+  "loggingText" : "2026/10/22 22:31:33 - transform_estat_tour_ce_omn12 - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'\n2026/10/22 22:31:33 - transform_estat_tour_ce_omn12 - Execution started for pipeline [transform_estat_tour_ce_omn12]\n2026/10/22 22:31:33 - CSV file input.0 - Header row skipped in file '/Users/ioannis/Documents/CSYM505/etl/data/raw/estat_tour_ce_omn12.tsv'\n2026/10/22 22:31:33 - CSV file input.0 - Finished processing (I=46087, O=0, R=0, W=46086, U=0, E=0)\n2026/10/22 22:31:34 - Split dimensions.0 - Finished processing (I=0, O=0, R=46086, W=46086, U=0, E=0)\n2026/10/22 22:31:34 - Years to rows.0 - Finished processing (I=0, O=0, R=46086, W=414774, U=0, E=0)\n2026/10/22 22:31:34 - Extract value and flags.0 - Finished processing (I=0, O=0, R=414774, W=414774, U=0, E=0)\n2026/10/22 22:31:34 - Set data types.0 - Finished processing (I=0, O=0, R=414774, W=414774, U=0, E=0)\n2026/10/22 22:31:34 - Text file output.0 - Finished processing (I=0, O=414775, R=414774, W=414774, U=0, E=0)\n2026/10/22 22:31:34 - transform_estat_tour_ce_omn12 - Pipeline duration : 0.816 seconds [  0.816\" ]\n",
+  "lastLogLineNr" : 191,
+  "metrics" : [ {
+    "componentName" : "CSV file input",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 0,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 92917,
+      "Input" : 46087,
+      "Written" : 46086,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 496,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Split dimensions",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 46086,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 73974,
+      "Input" : 0,
+      "Written" : 46086,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 623,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Years to rows",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 46086,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 562024,
+      "Input" : 0,
+      "Written" : 414774,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 738,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Extract value and flags",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 414774,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 545755,
+      "Input" : 0,
+      "Written" : 414774,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 760,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Set data types",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 414774,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 536577,
+      "Input" : 0,
+      "Written" : 414774,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 773,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Text file output",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 414774,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 527704,
+      "Input" : 0,
+      "Written" : 414774,
+      "Updated" : 0,
+      "Output" : 414775,
+      "Data volume out" : 17977900,
+      "Duration" : 786,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  } ],
+  "statusDescription" : "Finished",
+  "updateTime" : 1792697494228,
+  "childIds" : [ "a0f05180-70c7-4cca-9a2b-ef3bf18b920a", "a860d22e-5a69-4dcb-906c-a92b402aa383", "33fc6db9-d406-4e16-8a63-8730863be12c", "1c8c5ec4-7093-4c02-bd0b-eccfb7c20ee4", "78ec5bb6-2410-415b-85af-d401b1b56c2d", "b24b7d68-8c6b-493f-a7b6-da7c1df2f131" ],
+  "details" : { },
+  "failed" : false,
+  "executionEndDate" : 1792697494227,
+  "containerId" : "a414adaf-f6a0-4b9a-93a2-5f885b76b528"
+}
