@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CSYM505.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6a3f1019d86d3ef05300b32cbf18d6424b265fc0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd78e069b308eeedb3d14974c049ac5813e81502")]
 [assembly: System.Reflection.AssemblyProductAttribute("CSYM505.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CSYM505.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
