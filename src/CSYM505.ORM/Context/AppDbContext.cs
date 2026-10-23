@@ -5,6 +5,7 @@ namespace CSYM505.ORM.Context
 
     public class AppDbContext : DbContext
     {
+        // Eurostat
         public DbSet<AnnualAccommodationNights> AnnualAccommodationNights { get; set; } = null!;
 
         public DbSet<MonthlyAccommodationNights> MonthlyAccommodationNights { get; set; } = null!;
@@ -25,9 +26,11 @@ namespace CSYM505.ORM.Context
 
         public DbSet<AnnualHotelOccupancy> AnnualHotelOccupancy { get; set; } = null!;
 
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-        {
-        }
+        // Analytics
+        public DbSet<AnnualDemand> AnnualDemand { get; set; } = null!;
+
+        public AppDbContext(DbContextOptions<AppDbContext> options)
+            : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

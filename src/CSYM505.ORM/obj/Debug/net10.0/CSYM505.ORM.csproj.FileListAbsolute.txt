@@ -15,3 +15,4 @@
 /Users/ioannis/Documents/CSYM505/src/CSYM505.ORM/obj/Debug/net10.0/CSYM505.ORM.pdb
 /Users/ioannis/Documents/CSYM505/src/CSYM505.ORM/obj/Debug/net10.0/CSYM505.ORM.genruntimeconfig.cache
 /Users/ioannis/Documents/CSYM505/src/CSYM505.ORM/obj/Debug/net10.0/ref/CSYM505.ORM.dll
+/Users/ioannis/Documents/CSYM505/src/CSYM505.ORM/obj/Debug/net10.0/CSYM505.ORM.sourcelink.json

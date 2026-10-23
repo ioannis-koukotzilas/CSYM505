@@ -21,9 +21,9 @@ namespace CSYM505.Api.Controllers.AnalyticsApi
             try
             {
                 var service = _serviceProvider.GetRequiredService<IAnalyticsService>();
-                await service.AnalyzeData();
+                var result = await service.AnalyzeData();
 
-                return Ok();
+                return Ok(result);
             }
             catch (Exception ex)
             {

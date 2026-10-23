@@ -1,0 +1,33 @@
+name: csym505-superset
+
+services:
+  superset:
+    image: apache/superset:6.1.0
+    restart: unless-stopped
+
+    ports:
+      - "127.0.0.1:8088:8088"
+
+    environment:
+      SUPERSET_SECRET_KEY: ${SUPERSET_SECRET_KEY:?Missing SUPERSET_SECRET_KEY}
+      SUPERSET_CONFIG_PATH: /app/pythonpath/superset_config.py
+
+    volumes:
+      - superset_home:/app/superset_home
+
+      - type: bind
+        source: ./superset_config.py
+        target: /app/pythonpath/superset_config.py
+        read_only: true
+        bind:
+          create_host_path: false
+
+      - type: bind
+        source: ../src/CSYM505.Api/csym505.db
+        target: /app/data/csym505.db
+        read_only: true
+        bind:
+          create_host_path: false
+
+volumes:
+  superset_home:

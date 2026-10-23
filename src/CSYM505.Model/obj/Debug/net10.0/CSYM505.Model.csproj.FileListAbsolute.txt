@@ -9,3 +9,4 @@
 /Users/ioannis/Documents/CSYM505/src/CSYM505.Model/obj/Debug/net10.0/refint/CSYM505.Model.dll
 /Users/ioannis/Documents/CSYM505/src/CSYM505.Model/obj/Debug/net10.0/CSYM505.Model.pdb
 /Users/ioannis/Documents/CSYM505/src/CSYM505.Model/obj/Debug/net10.0/ref/CSYM505.Model.dll
+/Users/ioannis/Documents/CSYM505/src/CSYM505.Model/obj/Debug/net10.0/CSYM505.Model.sourcelink.json
