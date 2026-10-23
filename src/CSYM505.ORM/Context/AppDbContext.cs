@@ -29,6 +29,10 @@ namespace CSYM505.ORM.Context
         // Analytics
         public DbSet<AnnualDemand> AnnualDemand { get; set; } = null!;
 
+        public DbSet<MonthlyDemand> MonthlyDemand { get; set; } = null!;
+
+        public DbSet<AnnualSeasonality> AnnualSeasonality { get; set; } = null!;
+
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options) { }
 

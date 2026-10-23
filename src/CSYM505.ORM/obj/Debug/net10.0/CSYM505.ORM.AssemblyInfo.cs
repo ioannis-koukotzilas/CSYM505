@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CSYM505.ORM")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+899249a72de2a70d75c525991aba15e33af4bc39")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6a3f1019d86d3ef05300b32cbf18d6424b265fc0")]
 [assembly: System.Reflection.AssemblyProductAttribute("CSYM505.ORM")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CSYM505.ORM")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -380,6 +380,79 @@ namespace CSYM505.ORM.Migrations
                     b.ToTable("tour_ce_oan3", (string)null);
                 });
 
+            modelBuilder.Entity("CSYM505.Model.Entities.AnnualSeasonality", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("id");
+
+                    b.Property<string>("AccommodationType")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("nace_r2");
+
+                    b.Property<string>("AnnualFlags")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("annual_flags");
+
+                    b.Property<decimal?>("AnnualNights")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("annual_nights");
+
+                    b.Property<string>("AnnualRawValue")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("annual_raw_value");
+
+                    b.Property<string>("Dataset")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("dataset");
+
+                    b.Property<string>("Frequency")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("freq");
+
+                    b.Property<string>("Geo")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("geo");
+
+                    b.Property<string>("Residence")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("c_resid");
+
+                    b.Property<string>("SummerFlags")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("summer_flags");
+
+                    b.Property<decimal?>("SummerNights")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("summer_nights");
+
+                    b.Property<decimal?>("SummerSharePercent")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("summer_share_percent");
+
+                    b.Property<string>("Unit")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("unit");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("year");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Geo", "Year")
+                        .IsUnique();
+
+                    b.ToTable("analytics_annual_seasonality", (string)null);
+                });
+
             modelBuilder.Entity("CSYM505.Model.Entities.MonthlyAccommodationNights", b =>
                 {
                     b.Property<int>("Id")
@@ -441,6 +514,90 @@ namespace CSYM505.ORM.Migrations
                         .IsUnique();
 
                     b.ToTable("tour_occ_nin2m", (string)null);
+                });
+
+            modelBuilder.Entity("CSYM505.Model.Entities.MonthlyDemand", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("id");
+
+                    b.Property<string>("AccommodationType")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("nace_r2");
+
+                    b.Property<string>("AnnualFlags")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("annual_flags");
+
+                    b.Property<decimal?>("AnnualNights")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("annual_nights");
+
+                    b.Property<string>("AnnualRawValue")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("annual_raw_value");
+
+                    b.Property<string>("Dataset")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("dataset");
+
+                    b.Property<string>("Flags")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("flags");
+
+                    b.Property<string>("Frequency")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("freq");
+
+                    b.Property<string>("Geo")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("geo");
+
+                    b.Property<string>("Month")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("month");
+
+                    b.Property<decimal?>("MonthlySharePercent")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("monthly_share_percent");
+
+                    b.Property<decimal?>("Nights")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("nights");
+
+                    b.Property<string>("RawValue")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("raw_value");
+
+                    b.Property<string>("Residence")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("c_resid");
+
+                    b.Property<string>("Unit")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("unit");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("year");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Geo", "Year", "Month")
+                        .IsUnique();
+
+                    b.ToTable("analytics_monthly_demand", (string)null);
                 });
 
             modelBuilder.Entity("CSYM505.Model.Entities.MonthlyPlatformActivity", b =>
