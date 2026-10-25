@@ -1,0 +1,16 @@
+{
+  "name" : "Set data types",
+  "filename" : null,
+  "id" : "57fe3cb3-e483-4016-b485-bf2b61590337",
+  "parentId" : "7b88d080-10d7-4743-803c-ef24e24fd73e",
+  "executionType" : "Transform",
+  "executorXml" : null,
+  "metadataJson" : null,
+  "runConfigurationName" : null,
+  "logLevel" : "BASIC",
+  "parameterValues" : { },
+  "environmentDetails" : { },
+  "registrationDate" : 1792920293927,
+  "executionStartDate" : 1792920293895,
+  "copyNr" : "0"
+}

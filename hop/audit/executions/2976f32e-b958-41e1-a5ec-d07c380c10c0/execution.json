@@ -1,0 +1,16 @@
+{
+  "name" : "Extract region code",
+  "filename" : null,
+  "id" : "2976f32e-b958-41e1-a5ec-d07c380c10c0",
+  "parentId" : "583d2149-6aac-45e6-ad34-cae3d5e53208",
+  "executionType" : "Transform",
+  "executorXml" : null,
+  "metadataJson" : null,
+  "runConfigurationName" : null,
+  "logLevel" : "BASIC",
+  "parameterValues" : { },
+  "environmentDetails" : { },
+  "registrationDate" : 1792920301317,
+  "executionStartDate" : 1792920301300,
+  "copyNr" : "0"
+}

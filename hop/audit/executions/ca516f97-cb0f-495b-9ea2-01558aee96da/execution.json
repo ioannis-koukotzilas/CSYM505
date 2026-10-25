@@ -1,0 +1,16 @@
+{
+  "name" : "Add source units",
+  "filename" : null,
+  "id" : "ca516f97-cb0f-495b-9ea2-01558aee96da",
+  "parentId" : "d00ddf9c-8db0-4977-93d2-8234cf3e849f",
+  "executionType" : "Transform",
+  "executorXml" : null,
+  "metadataJson" : null,
+  "runConfigurationName" : null,
+  "logLevel" : "BASIC",
+  "parameterValues" : { },
+  "environmentDetails" : { },
+  "registrationDate" : 1792919921552,
+  "executionStartDate" : 1792919921287,
+  "copyNr" : "0"
+}

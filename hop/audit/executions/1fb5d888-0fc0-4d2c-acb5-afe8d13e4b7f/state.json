@@ -1,0 +1,17 @@
+{
+  "executionType" : "Transform",
+  "parentId" : "b84fd595-d74a-4477-92a5-3bbdd907a816",
+  "id" : "1fb5d888-0fc0-4d2c-acb5-afe8d13e4b7f",
+  "name" : "Write annual CSV",
+  "copyNr" : "0",
+  "loggingText" : null,
+  "lastLogLineNr" : null,
+  "metrics" : [ ],
+  "statusDescription" : "Finished",
+  "updateTime" : 1792920057716,
+  "childIds" : [ ],
+  "details" : { },
+  "failed" : false,
+  "executionEndDate" : 1792920057641,
+  "containerId" : "e05eec3b-4812-47a0-a363-fc7db138c094"
+}

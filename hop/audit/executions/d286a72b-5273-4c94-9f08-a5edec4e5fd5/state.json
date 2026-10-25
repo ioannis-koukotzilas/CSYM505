@@ -1,0 +1,17 @@
+{
+  "executionType" : "Transform",
+  "parentId" : "bcbbe3e2-0035-49e2-a1b0-4e7c24799a32",
+  "id" : "d286a72b-5273-4c94-9f08-a5edec4e5fd5",
+  "name" : "Add source units",
+  "copyNr" : "0",
+  "loggingText" : null,
+  "lastLogLineNr" : null,
+  "metrics" : [ ],
+  "statusDescription" : "Finished",
+  "updateTime" : 1792920048172,
+  "childIds" : [ ],
+  "details" : { },
+  "failed" : false,
+  "executionEndDate" : 1792920048139,
+  "containerId" : "a792eca1-8536-41d5-8c2d-06f2cbdc2393"
+}

@@ -1,0 +1,17 @@
+{
+  "executionType" : "Transform",
+  "parentId" : "d00ddf9c-8db0-4977-93d2-8234cf3e849f",
+  "id" : "b686ec35-07e5-4478-ae7a-86eb24a0e9bb",
+  "name" : "Extract region code",
+  "copyNr" : "0",
+  "loggingText" : null,
+  "lastLogLineNr" : null,
+  "metrics" : [ ],
+  "statusDescription" : "Stopped",
+  "updateTime" : 1792919922034,
+  "childIds" : [ ],
+  "details" : { },
+  "failed" : false,
+  "executionEndDate" : 1792919922004,
+  "containerId" : "ce62756c-38b9-4b47-8be1-09142955db48"
+}

@@ -1,0 +1,17 @@
+{
+  "executionType" : "Transform",
+  "parentId" : "b84fd595-d74a-4477-92a5-3bbdd907a816",
+  "id" : "233ac069-350a-4858-95a8-57855b119577",
+  "name" : "Label totals",
+  "copyNr" : "0",
+  "loggingText" : null,
+  "lastLogLineNr" : null,
+  "metrics" : [ ],
+  "statusDescription" : "Finished",
+  "updateTime" : 1792920057693,
+  "childIds" : [ ],
+  "details" : { },
+  "failed" : false,
+  "executionEndDate" : 1792920057559,
+  "containerId" : "e05eec3b-4812-47a0-a363-fc7db138c094"
+}

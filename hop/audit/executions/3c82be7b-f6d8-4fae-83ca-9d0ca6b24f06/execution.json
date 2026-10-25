@@ -1,0 +1,16 @@
+{
+  "name" : "Write annual CSV",
+  "filename" : null,
+  "id" : "3c82be7b-f6d8-4fae-83ca-9d0ca6b24f06",
+  "parentId" : "583d2149-6aac-45e6-ad34-cae3d5e53208",
+  "executionType" : "Transform",
+  "executorXml" : null,
+  "metadataJson" : null,
+  "runConfigurationName" : null,
+  "logLevel" : "BASIC",
+  "parameterValues" : { },
+  "environmentDetails" : { },
+  "registrationDate" : 1792920301327,
+  "executionStartDate" : 1792920301300,
+  "copyNr" : "0"
+}

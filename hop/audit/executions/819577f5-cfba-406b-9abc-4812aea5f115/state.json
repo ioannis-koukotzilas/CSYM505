@@ -1,0 +1,178 @@
+{
+  "executionType" : "Pipeline",
+  "parentId" : null,
+  "id" : "819577f5-cfba-406b-9abc-4812aea5f115",
+  "name" : "transform_bog_regional_travel_receipts",
+  "copyNr" : null,
+  "loggingText" : "2026/10/25 11:21:07 - transform_bog_regional_travel_receipts - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'\n2026/10/25 11:21:07 - transform_bog_regional_travel_receipts - Execution started for pipeline [transform_bog_regional_travel_receipts]\n2026/10/25 11:21:07 - Read annual data.0 - Finished processing (I=86, O=0, R=0, W=86, U=0, E=0)\n2026/10/25 11:21:07 - Extract region code.0 - Finished processing (I=0, O=0, R=86, W=86, U=0, E=0)\n2026/10/25 11:21:07 - Label totals.0 - Finished processing (I=0, O=0, R=86, W=86, U=0, E=0)\n2026/10/25 11:21:07 - Years to rows.0 - Finished processing (I=0, O=0, R=86, W=860, U=0, E=0)\n2026/10/25 11:21:07 - Extract value and flags.0 - Finished processing (I=0, O=0, R=860, W=860, U=0, E=0)\n2026/10/25 11:21:07 - Check value format.0 - Finished processing (I=0, O=0, R=860, W=860, U=0, E=0)\n2026/10/25 11:21:07 - Set data types.0 - Finished processing (I=0, O=0, R=860, W=860, U=0, E=0)\n2026/10/25 11:21:07 - Add source units.0 - Finished processing (I=0, O=0, R=860, W=860, U=0, E=0)\n2026/10/25 11:21:07 - Write annual CSV.0 - Finished processing (I=0, O=861, R=860, W=860, U=0, E=0)\n2026/10/25 11:21:07 - transform_bog_regional_travel_receipts - Pipeline duration : 0.124 seconds [  0.124\" ]\n",
+  "lastLogLineNr" : 76,
+  "metrics" : [ {
+    "componentName" : "Read annual data",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 0,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 1654,
+      "Input" : 86,
+      "Written" : 86,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 52,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Extract region code",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 86,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 1592,
+      "Input" : 0,
+      "Written" : 86,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 54,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Label totals",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 86,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 1509,
+      "Input" : 0,
+      "Written" : 86,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 57,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Years to rows",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 86,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 13871,
+      "Input" : 0,
+      "Written" : 860,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 62,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Extract value and flags",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 860,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 13231,
+      "Input" : 0,
+      "Written" : 860,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 65,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Check value format",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 860,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 13030,
+      "Input" : 0,
+      "Written" : 860,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 66,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Set data types",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 860,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 12647,
+      "Input" : 0,
+      "Written" : 860,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 68,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Reject invalid values",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 0,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 0,
+      "Input" : 0,
+      "Written" : 0,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 80,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Add source units",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 860,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 11026,
+      "Input" : 0,
+      "Written" : 860,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 78,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Write annual CSV",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 860,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 10630,
+      "Input" : 0,
+      "Written" : 860,
+      "Updated" : 0,
+      "Output" : 861,
+      "Data volume out" : 79848,
+      "Duration" : 81,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  } ],
+  "statusDescription" : "Finished",
+  "updateTime" : 1792920067203,
+  "childIds" : [ "65bb19e7-c62f-4d85-b7c4-0f0a0f001c8d", "f5810229-ae15-40f0-9c26-d5ae9df9fe03", "4b41f265-3125-49ea-81a4-7bbf7db037b9", "3cbefef7-c5c2-438b-a507-7f2ffda2f9d1", "2c498884-77f9-48f6-8e8f-747adefbcd1f", "2c4cdf0d-1bd5-4a82-989d-43d5574cb3e4", "01734198-dcdb-49e1-ba8f-54006af35165", "009f588e-5b9d-45d4-babe-47fc617c0803", "8c4e9e26-c9d5-4ddc-943a-0bac70622e14", "234bd7be-54da-44c1-b687-4ed0f7ec69cd" ],
+  "details" : { },
+  "failed" : false,
+  "executionEndDate" : 1792920067202,
+  "containerId" : "37e7d738-b8fb-40d9-90a4-dcfc74dd8023"
+}

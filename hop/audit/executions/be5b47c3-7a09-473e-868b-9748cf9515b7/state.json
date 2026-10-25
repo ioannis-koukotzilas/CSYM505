@@ -1,0 +1,17 @@
+{
+  "executionType" : "Transform",
+  "parentId" : "7b88d080-10d7-4743-803c-ef24e24fd73e",
+  "id" : "be5b47c3-7a09-473e-868b-9748cf9515b7",
+  "name" : "Read annual data",
+  "copyNr" : "0",
+  "loggingText" : null,
+  "lastLogLineNr" : null,
+  "metrics" : [ ],
+  "statusDescription" : "Finished",
+  "updateTime" : 1792920294122,
+  "childIds" : [ ],
+  "details" : { },
+  "failed" : false,
+  "executionEndDate" : 1792920293990,
+  "containerId" : "ae6a1cbf-cc16-4df7-be14-a58be1a400c2"
+}

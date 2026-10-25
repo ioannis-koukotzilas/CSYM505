@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline>
+  <info>
+    <name>transform_bog_regional_length_of_stay</name>
+    <name_sync_with_filename>Y</name_sync_with_filename>
+    <pipeline_type>Normal</pipeline_type>
+    <parameters/>
+  </info>
+  <transform>
+    <name>Read annual data</name><type>ExcelInput</type>
+    <file><name>${PROJECT_HOME}/data/raw/bank-of-greece/Μέση_διάρκεια_παραμονής_περιφερειακά.xlsx</name><file_required>Y</file_required><include_subfolders>N</include_subfolders></file>
+    <sheets><sheet><name>ΠΕΡΙΦΕΡΕΙΑΚΑ</name><startrow>5</startrow><startcol>0</startcol><is_regex>N</is_regex></sheet></sheets>
+    <header>N</header><stoponempty>Y</stoponempty><noempty>Y</noempty><limit>0</limit>
+    <strict_types>N</strict_types><error_ignored>N</error_ignored><error_line_skipped>N</error_line_skipped>
+    <encoding>UTF-8</encoding><spreadsheet_type>POI</spreadsheet_type>
+    <fields>
+      <field><name>region</name><type>String</type><length>-1</length><precision>-1</precision><repeat>Y</repeat></field>
+      <field><name>country</name><type>String</type><length>-1</length><precision>-1</precision><repeat>N</repeat></field>
+      <field><name>2016</name><type>String</type><length>-1</length><precision>-1</precision><format>0.###############################</format><decimal>.</decimal><repeat>N</repeat></field>
+      <field><name>2017</name><type>String</type><length>-1</length><precision>-1</precision><format>0.###############################</format><decimal>.</decimal><repeat>N</repeat></field>
+      <field><name>2018</name><type>String</type><length>-1</length><precision>-1</precision><format>0.###############################</format><decimal>.</decimal><repeat>N</repeat></field>
+      <field><name>2019</name><type>String</type><length>-1</length><precision>-1</precision><format>0.###############################</format><decimal>.</decimal><repeat>N</repeat></field>
+      <field><name>2020</name><type>String</type><length>-1</length><precision>-1</precision><format>0.###############################</format><decimal>.</decimal><repeat>N</repeat></field>
+      <field><name>2021</name><type>String</type><length>-1</length><precision>-1</precision><format>0.###############################</format><decimal>.</decimal><repeat>N</repeat></field>
+      <field><name>2022</name><type>String</type><length>-1</length><precision>-1</precision><format>0.###############################</format><decimal>.</decimal><repeat>N</repeat></field>
+      <field><name>2023</name><type>String</type><length>-1</length><precision>-1</precision><format>0.###############################</format><decimal>.</decimal><repeat>N</repeat></field>
+      <field><name>2024</name><type>String</type><length>-1</length><precision>-1</precision><format>0.###############################</format><decimal>.</decimal><repeat>N</repeat></field>
+      <field><name>2025</name><type>String</type><length>-1</length><precision>-1</precision><format>0.###############################</format><decimal>.</decimal><repeat>N</repeat></field>
+    </fields>
+    <copies>1</copies><GUI><xloc>100</xloc><yloc>100</yloc></GUI>
+  </transform>
+  <transform>
+    <name>Extract region code</name><type>RegexEval</type>
+    <script>^.*\((EL[0-9]+)\)$</script><matcher>region</matcher><resultfieldname>region_code_found</resultfieldname>
+    <usevar>N</usevar><allowcapturegroups>Y</allowcapturegroups><replacefields>Y</replacefields>
+    <fields><field><name>geo</name><type>String</type><length>-1</length><precision>-1</precision></field></fields>
+    <copies>1</copies><GUI><xloc>340</xloc><yloc>100</yloc></GUI>
+  </transform>
+  <transform>
+    <name>Label totals</name><type>IfNull</type>
+    <selectFields>Y</selectFields><selectValuesType>N</selectValuesType><setEmptyStringAll>N</setEmptyStringAll>
+    <fields>
+      <field><name>country</name><value>TOTAL</value><set_empty_string>N</set_empty_string></field>
+      <field><name>geo</name><value>EL</value><set_empty_string>N</set_empty_string></field>
+    </fields>
+    <copies>1</copies><GUI><xloc>580</xloc><yloc>100</yloc></GUI>
+  </transform>
+  <transform>
+    <name>Years to rows</name><type>Normaliser</type><typefield>year</typefield>
+    <fields>
+      <field><name>2016</name><value>2016</value><norm>raw_value</norm></field>
+      <field><name>2017</name><value>2017</value><norm>raw_value</norm></field>
+      <field><name>2018</name><value>2018</value><norm>raw_value</norm></field>
+      <field><name>2019</name><value>2019</value><norm>raw_value</norm></field>
+      <field><name>2020</name><value>2020</value><norm>raw_value</norm></field>
+      <field><name>2021</name><value>2021</value><norm>raw_value</norm></field>
+      <field><name>2022</name><value>2022</value><norm>raw_value</norm></field>
+      <field><name>2023</name><value>2023</value><norm>raw_value</norm></field>
+      <field><name>2024</name><value>2024</value><norm>raw_value</norm></field>
+      <field><name>2025</name><value>2025</value><norm>raw_value</norm></field>
+    </fields>
+    <copies>1</copies><GUI><xloc>820</xloc><yloc>100</yloc></GUI>
+  </transform>
+  <transform>
+    <name>Extract value and flags</name><type>RegexEval</type>
+    <script>^\s*(?:([+-]?[0-9]+(?:\.[0-9]+)?(?:[eE][+-]?[0-9]+)?)|(\(:\)))\s*$</script>
+    <matcher>raw_value</matcher><resultfieldname>parse_ok</resultfieldname>
+    <usevar>N</usevar><allowcapturegroups>Y</allowcapturegroups><replacefields>Y</replacefields>
+    <fields>
+      <field><name>value_text</name><type>String</type><length>-1</length><precision>-1</precision></field>
+      <field><name>flags</name><type>String</type><length>-1</length><precision>-1</precision></field>
+    </fields>
+    <copies>1</copies><GUI><xloc>820</xloc><yloc>300</yloc></GUI>
+  </transform>
+  <transform>
+    <name>Check value format</name><type>FilterRows</type>
+    <send_true_to>Set data types</send_true_to><send_false_to>Reject invalid values</send_false_to>
+    <compare><condition><negated>N</negated><leftvalue>parse_ok</leftvalue><function>=</function>
+      <value><name>constant</name><type>Boolean</type><text>Y</text><length>-1</length><precision>-1</precision><isnull>N</isnull></value>
+    </condition></compare>
+    <copies>1</copies><GUI><xloc>580</xloc><yloc>300</yloc></GUI>
+  </transform>
+  <transform>
+    <name>Reject invalid values</name><type>Abort</type>
+    <abort_option>ABORT_WITH_ERROR</abort_option><always_log_rows>Y</always_log_rows>
+    <message>Expected a numeric annual value or (:). Review the source row.</message><row_threshold>0</row_threshold>
+    <copies>1</copies><GUI><xloc>580</xloc><yloc>500</yloc></GUI>
+  </transform>
+  <transform>
+    <name>Set data types</name><type>SelectValues</type>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta><name>year</name><rename>year</rename><type>Integer</type><length>-2</length><precision>-2</precision><lenient_string_to_number>N</lenient_string_to_number></meta>
+      <meta><name>value_text</name><rename>value</rename><type>BigNumber</type><length>-2</length><precision>-2</precision><decimal_symbol>.</decimal_symbol><lenient_string_to_number>N</lenient_string_to_number></meta>
+    </fields>
+    <copies>1</copies><GUI><xloc>340</xloc><yloc>300</yloc></GUI>
+  </transform>
+  <transform>
+    <name>Add source units</name><type>Constant</type>
+    <fields>
+      <field><name>freq</name><type>String</type><length>-1</length><precision>-1</precision><nullif>A</nullif><set_empty_string>N</set_empty_string></field>
+      <field><name>unit</name><type>String</type><length>-1</length><precision>-1</precision><nullif>NIGHTS_PER_VISIT</nullif><set_empty_string>N</set_empty_string></field>
+    </fields>
+    <copies>1</copies><GUI><xloc>100</xloc><yloc>300</yloc></GUI>
+  </transform>
+  <transform>
+    <name>Write annual CSV</name><type>TextFileOutput</type>
+    <compression>None</compression><create_parent_folder>Y</create_parent_folder>
+    <separator>,</separator><enclosure>"</enclosure><enclosure_forced>N</enclosure_forced>
+    <header>Y</header><footer>N</footer><format>UNIX</format><encoding>UTF-8</encoding><fileNameInField>N</fileNameInField>
+    <file>
+      <name>${PROJECT_HOME}/data/processed/bog_regional_length_of_stay</name>
+      <extension>csv</extension><append>N</append><split>N</split><haspartno>N</haspartno><add_date>N</add_date><add_time>N</add_time>
+      <add_to_result_filenames>Y</add_to_result_filenames><pad>N</pad><fast_dump>N</fast_dump>
+    </file>
+    <fields>
+      <field><name>freq</name><type>String</type><length>-1</length><precision>-1</precision><decimal>.</decimal><trim_type>none</trim_type></field>
+      <field><name>geo</name><type>String</type><length>-1</length><precision>-1</precision><decimal>.</decimal><trim_type>none</trim_type></field>
+      <field><name>region</name><type>String</type><length>-1</length><precision>-1</precision><decimal>.</decimal><trim_type>none</trim_type></field>
+      <field><name>country</name><type>String</type><length>-1</length><precision>-1</precision><decimal>.</decimal><trim_type>none</trim_type></field>
+      <field><name>year</name><type>Integer</type><length>-1</length><precision>-1</precision><decimal>.</decimal><trim_type>none</trim_type></field>
+      <field><name>unit</name><type>String</type><length>-1</length><precision>-1</precision><decimal>.</decimal><trim_type>none</trim_type></field>
+      <field><name>value</name><type>BigNumber</type><length>-1</length><precision>-1</precision><decimal>.</decimal><trim_type>none</trim_type></field>
+      <field><name>flags</name><type>String</type><length>-1</length><precision>-1</precision><decimal>.</decimal><trim_type>none</trim_type></field>
+      <field><name>raw_value</name><type>String</type><length>-1</length><precision>-1</precision><decimal>.</decimal><trim_type>none</trim_type></field>
+    </fields>
+    <copies>1</copies><GUI><xloc>100</xloc><yloc>500</yloc></GUI>
+  </transform>
+  <order>
+    <hop><from>Read annual data</from><to>Extract region code</to><enabled>Y</enabled></hop>
+    <hop><from>Extract region code</from><to>Label totals</to><enabled>Y</enabled></hop>
+    <hop><from>Label totals</from><to>Years to rows</to><enabled>Y</enabled></hop>
+    <hop><from>Years to rows</from><to>Extract value and flags</to><enabled>Y</enabled></hop>
+    <hop><from>Extract value and flags</from><to>Check value format</to><enabled>Y</enabled></hop>
+    <hop><from>Check value format</from><to>Set data types</to><enabled>Y</enabled></hop>
+    <hop><from>Check value format</from><to>Reject invalid values</to><enabled>Y</enabled></hop>
+    <hop><from>Set data types</from><to>Add source units</to><enabled>Y</enabled></hop>
+    <hop><from>Add source units</from><to>Write annual CSV</to><enabled>Y</enabled></hop>
+  </order>
+  <transform_error_handling/><attributes/>
+</pipeline>

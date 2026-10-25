@@ -1,0 +1,16 @@
+{
+  "name" : "Read annual data",
+  "filename" : null,
+  "id" : "8eee1a1d-0abc-4b7a-a8c6-78f9b0fc1726",
+  "parentId" : "d00ddf9c-8db0-4977-93d2-8234cf3e849f",
+  "executionType" : "Transform",
+  "executorXml" : null,
+  "metadataJson" : null,
+  "runConfigurationName" : null,
+  "logLevel" : "BASIC",
+  "parameterValues" : { },
+  "environmentDetails" : { },
+  "registrationDate" : 1792919921536,
+  "executionStartDate" : 1792919921287,
+  "copyNr" : "0"
+}

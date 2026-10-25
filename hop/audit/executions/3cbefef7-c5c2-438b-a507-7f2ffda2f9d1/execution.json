@@ -1,0 +1,16 @@
+{
+  "name" : "Years to rows",
+  "filename" : null,
+  "id" : "3cbefef7-c5c2-438b-a507-7f2ffda2f9d1",
+  "parentId" : "819577f5-cfba-406b-9abc-4812aea5f115",
+  "executionType" : "Transform",
+  "executorXml" : null,
+  "metadataJson" : null,
+  "runConfigurationName" : null,
+  "logLevel" : "BASIC",
+  "parameterValues" : { },
+  "environmentDetails" : { },
+  "registrationDate" : 1792920067105,
+  "executionStartDate" : 1792920067078,
+  "copyNr" : "0"
+}

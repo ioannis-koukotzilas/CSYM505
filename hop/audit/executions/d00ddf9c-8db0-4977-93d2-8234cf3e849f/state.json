@@ -1,0 +1,178 @@
+{
+  "executionType" : "Pipeline",
+  "parentId" : null,
+  "id" : "d00ddf9c-8db0-4977-93d2-8234cf3e849f",
+  "name" : "transform_bog_regional_expenditure_per_night",
+  "copyNr" : null,
+  "loggingText" : "2026/10/25 11:18:41 - transform_bog_regional_expenditure_per_night - Executing this pipeline using the Local Pipeline Engine with run configuration 'local'\n2026/10/25 11:18:41 - transform_bog_regional_expenditure_per_night - Execution started for pipeline [transform_bog_regional_expenditure_per_night]\n2026/10/25 11:18:42 - Read annual data.0 - Finished processing (I=87, O=0, R=0, W=87, U=0, E=0)\n2026/10/25 11:18:42 - Reject invalid values.0 - ERROR: Row nr 1 causing abort \"Abort and log as an error\": [null], [TOTAL], [N], [EL], [2016], [null], [N], [null], [null]\n2026/10/25 11:18:42 - Reject invalid values.0 - ERROR: Expected a numeric annual value or (:). Review the source row.\n2026/10/25 11:18:42 - Add source units.0 - Finished processing (I=0, O=0, R=860, W=860, U=0, E=0)\n2026/10/25 11:18:42 - Reject invalid values.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=1)\n2026/10/25 11:18:42 - transform_bog_regional_expenditure_per_night - Pipeline detected one or more transforms with errors.\n2026/10/25 11:18:42 - transform_bog_regional_expenditure_per_night - Pipeline is killing the other transforms!\n2026/10/25 11:18:42 - Extract value and flags.0 - Finished processing (I=0, O=0, R=870, W=870, U=0, E=0)\n2026/10/25 11:18:42 - Extract region code.0 - Finished processing (I=0, O=0, R=87, W=87, U=0, E=0)\n2026/10/25 11:18:42 - Check value format.0 - Finished processing (I=0, O=0, R=870, W=870, U=0, E=0)\n2026/10/25 11:18:42 - Years to rows.0 - Finished processing (I=0, O=0, R=87, W=870, U=0, E=0)\n2026/10/25 11:18:42 - Write annual CSV.0 - Finished processing (I=0, O=834, R=833, W=832, U=0, E=0)\n2026/10/25 11:18:42 - Set data types.0 - Finished processing (I=0, O=0, R=860, W=860, U=0, E=0)\n2026/10/25 11:18:42 - Label totals.0 - Finished processing (I=0, O=0, R=87, W=87, U=0, E=0)\n2026/10/25 11:18:42 - transform_bog_regional_expenditure_per_night - Pipeline duration : 0.721 seconds [  0.721\" ]\n",
+  "lastLogLineNr" : 25,
+  "metrics" : [ {
+    "componentName" : "Read annual data",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 0,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 204,
+      "Input" : 87,
+      "Written" : 87,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 426,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Extract region code",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 87,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 203,
+      "Input" : 0,
+      "Written" : 87,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 429,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Label totals",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 87,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 201,
+      "Input" : 0,
+      "Written" : 87,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 432,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Years to rows",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 87,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 2023,
+      "Input" : 0,
+      "Written" : 870,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 430,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Extract value and flags",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 870,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 2028,
+      "Input" : 0,
+      "Written" : 870,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 429,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Check value format",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 870,
+      "Buffers Output" : 9,
+      "Errors" : 0,
+      "Speed" : 2023,
+      "Input" : 0,
+      "Written" : 870,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 430,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Set data types",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 860,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 1991,
+      "Input" : 0,
+      "Written" : 860,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 432,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Reject invalid values",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 1,
+      "Buffers Output" : 0,
+      "Errors" : 1,
+      "Speed" : 2,
+      "Input" : 0,
+      "Written" : 1,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 428,
+      "Rejected" : 0,
+      "Buffers Input" : 9
+    }
+  }, {
+    "componentName" : "Add source units",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 860,
+      "Buffers Output" : 27,
+      "Errors" : 0,
+      "Speed" : 2009,
+      "Input" : 0,
+      "Written" : 860,
+      "Updated" : 0,
+      "Output" : 0,
+      "Duration" : 428,
+      "Rejected" : 0,
+      "Buffers Input" : 0
+    }
+  }, {
+    "componentName" : "Write annual CSV",
+    "componentCopy" : "0",
+    "metrics" : {
+      "Read" : 833,
+      "Buffers Output" : 0,
+      "Errors" : 0,
+      "Speed" : 1926,
+      "Input" : 0,
+      "Written" : 832,
+      "Updated" : 0,
+      "Output" : 834,
+      "Data volume out" : 84578,
+      "Duration" : 433,
+      "Rejected" : 0,
+      "Buffers Input" : 27
+    }
+  } ],
+  "statusDescription" : "Finished (with errors)",
+  "updateTime" : 1792919922016,
+  "childIds" : [ "8eee1a1d-0abc-4b7a-a8c6-78f9b0fc1726", "b686ec35-07e5-4478-ae7a-86eb24a0e9bb", "8f63ad37-cef5-40cd-abc3-f618e3a5c3c1", "6ca1a9d9-8097-41a3-a6cf-42aaec9ba58d", "cfaf2fd6-cf84-4a72-9db6-14f80a20ccc1", "6e83f937-b6b2-4184-8753-85c26b08d198", "df7e3d3f-9207-47c1-abd0-ac0d5437cac2", "6876f5ce-f9ee-4c79-a9c0-c5c8884650e5", "ca516f97-cb0f-495b-9ea2-01558aee96da", "10cd2ea0-a462-4ef7-b1e2-38f1f4ea3857" ],
+  "details" : { },
+  "failed" : true,
+  "executionEndDate" : 1792919922008,
+  "containerId" : "ce62756c-38b9-4b47-8be1-09142955db48"
+}

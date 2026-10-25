@@ -1,0 +1,16 @@
+{
+  "name" : "Check value format",
+  "filename" : null,
+  "id" : "920211a0-2555-41b3-bf0e-5c19844a4899",
+  "parentId" : "7b88d080-10d7-4743-803c-ef24e24fd73e",
+  "executionType" : "Transform",
+  "executorXml" : null,
+  "metadataJson" : null,
+  "runConfigurationName" : null,
+  "logLevel" : "BASIC",
+  "parameterValues" : { },
+  "environmentDetails" : { },
+  "registrationDate" : 1792920293926,
+  "executionStartDate" : 1792920293895,
+  "copyNr" : "0"
+}

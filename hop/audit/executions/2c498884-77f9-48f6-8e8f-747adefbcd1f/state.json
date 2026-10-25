@@ -1,0 +1,17 @@
+{
+  "executionType" : "Transform",
+  "parentId" : "819577f5-cfba-406b-9abc-4812aea5f115",
+  "id" : "2c498884-77f9-48f6-8e8f-747adefbcd1f",
+  "name" : "Extract value and flags",
+  "copyNr" : "0",
+  "loggingText" : null,
+  "lastLogLineNr" : null,
+  "metrics" : [ ],
+  "statusDescription" : "Finished",
+  "updateTime" : 1792920067210,
+  "childIds" : [ ],
+  "details" : { },
+  "failed" : false,
+  "executionEndDate" : 1792920067185,
+  "containerId" : "37e7d738-b8fb-40d9-90a4-dcfc74dd8023"
+}

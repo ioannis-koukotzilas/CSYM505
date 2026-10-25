@@ -1,0 +1,16 @@
+{
+  "name" : "Reject invalid values",
+  "filename" : null,
+  "id" : "897b7e69-2e37-4112-a9de-4a3612e66064",
+  "parentId" : "b84fd595-d74a-4477-92a5-3bbdd907a816",
+  "executionType" : "Transform",
+  "executorXml" : null,
+  "metadataJson" : null,
+  "runConfigurationName" : null,
+  "logLevel" : "BASIC",
+  "parameterValues" : { },
+  "environmentDetails" : { },
+  "registrationDate" : 1792920057488,
+  "executionStartDate" : 1792920057453,
+  "copyNr" : "0"
+}

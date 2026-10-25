@@ -1,0 +1,16 @@
+{
+  "name" : "Label totals",
+  "filename" : null,
+  "id" : "0be5277d-65d1-4f30-a99f-ad67fbacb43d",
+  "parentId" : "df89ec8d-2b36-4d4b-983a-a64937cc3da3",
+  "executionType" : "Transform",
+  "executorXml" : null,
+  "metadataJson" : null,
+  "runConfigurationName" : null,
+  "logLevel" : "BASIC",
+  "parameterValues" : { },
+  "environmentDetails" : { },
+  "registrationDate" : 1792920285592,
+  "executionStartDate" : 1792920285518,
+  "copyNr" : "0"
+}
