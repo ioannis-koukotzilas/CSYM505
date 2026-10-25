@@ -13,5 +13,11 @@ namespace CSYM505.Api.Controllers.AnalyticsApi.Dtos
         public List<VisitorComposition> VisitorComposition { get; set; } = [];
 
         public List<MonthlyLengthOfStay> MonthlyLengthOfStay { get; set; } = [];
+
+        public List<AnnualHotelRooms> AnnualHotelRooms { get; set; } = [];
+
+        public List<AnnualRoomOccupancy> AnnualRoomOccupancy { get; set; } = [];
+
+        public List<AnnualPlatformDemand> AnnualPlatformDemand { get; set; } = [];
     }
 }

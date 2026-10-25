@@ -22,12 +22,18 @@ namespace CSYM505.Api.Controllers.AnalyticsApi.Services
             var annualSeasonality = AnalyzeAnnualSeasonality(monthlyDemand);
             var visitorComposition = await AnalyzeVisitorComposition();
             var monthlyLengthOfStay = await AnalyzeMonthlyLengthOfStay();
+            var annualHotelRooms = await AnalyzeAnnualHotelRooms();
+            var annualRoomOccupancy = await AnalyzeAnnualRoomOccupancy();
+            var annualPlatformDemand = await AnalyzeAnnualPlatformDemand();
 
             await SaveAnnualDemand(annualDemand);
             await SaveMonthlyDemand(monthlyDemand);
             await SaveAnnualSeasonality(annualSeasonality);
             await SaveVisitorComposition(visitorComposition);
             await SaveMonthlyLengthOfStay(monthlyLengthOfStay);
+            await SaveAnnualHotelRooms(annualHotelRooms);
+            await SaveAnnualRoomOccupancy(annualRoomOccupancy);
+            await SaveAnnualPlatformDemand(annualPlatformDemand);
 
             var result = new AnalyticsResult
             {
@@ -36,12 +42,15 @@ namespace CSYM505.Api.Controllers.AnalyticsApi.Services
                 AnnualSeasonality = annualSeasonality,
                 VisitorComposition = visitorComposition,
                 MonthlyLengthOfStay = monthlyLengthOfStay,
+                AnnualHotelRooms = annualHotelRooms,
+                AnnualRoomOccupancy = annualRoomOccupancy,
+                AnnualPlatformDemand = annualPlatformDemand,
             };
 
             return result;
         }
 
-        #region Annual Demand
+        #region Κ1 - Annual Demand
         /// <summary>
         /// Αναλύει την ετήσια εξέλιξη των διανυκτερεύσεων και υπολογίζει
         /// την ποσοστιαία μεταβολή τους από το προηγούμενο έτος (K1).
@@ -193,7 +202,7 @@ namespace CSYM505.Api.Controllers.AnalyticsApi.Services
         }
         #endregion
 
-        #region Monthly Demand
+        #region Κ2 - Monthly Demand
         /// <summary>
         /// Αναλύει τη μηνιαία κατανομή των διανυκτερεύσεων και υπολογίζει
         /// το μερίδιο κάθε μήνα στο ετήσιο σύνολο της ίδιας περιοχής (K2).
@@ -339,7 +348,7 @@ namespace CSYM505.Api.Controllers.AnalyticsApi.Services
         }
         #endregion
 
-        #region Annual Seasonality
+        #region Κ3 - Annual Seasonality
         /// <summary>
         /// Υπολογίζει τη συγκέντρωση των διανυκτερεύσεων
         /// την περίοδο Ιουνίου–Σεπτεμβρίου (K3).
@@ -548,7 +557,7 @@ namespace CSYM505.Api.Controllers.AnalyticsApi.Services
         }
         #endregion
 
-        #region Visitor Composition
+        #region Κ4 - Visitor Composition
         /// <summary>
         /// Διαβάζει την ετήσια σύνθεση των διανυκτερεύσεων τουριστικών καταλυμάτων
         /// κατά χώρα κατοικίας επισκέπτη από το tour_occ_nin2m.
@@ -679,7 +688,7 @@ namespace CSYM505.Api.Controllers.AnalyticsApi.Services
         }
         #endregion
 
-        #region Monthly Length Of Stay
+        #region Κ5 - Monthly Length Of Stay
         /// <summary>
         /// Διαβάζει τις μηνιαίες διανυκτερεύσεις για την ανάλυση
         /// της μέσης διάρκειας παραμονής στην Ελλάδα.
@@ -803,6 +812,368 @@ namespace CSYM505.Api.Controllers.AnalyticsApi.Services
 
                 existingResult.NightsRawValue = result.NightsRawValue;
                 existingResult.ArrivalsRawValue = result.ArrivalsRawValue;
+            }
+
+            await _context.SaveChangesAsync();
+
+            await transaction.CommitAsync();
+        }
+        #endregion
+
+        #region K6 - Annual Hotel Rooms
+        /// <summary>
+        /// Διαβάζει την ετήσια δυναμικότητα σε δωμάτια ξενοδοχείων
+        /// και παρόμοιων καταλυμάτων από το tour_cap_nuts2.
+        /// </summary>
+        /// <remarks>
+        /// Καλύπτει Ελλάδα (EL) και Κεντρική Μακεδονία (EL52) για το 2020–2025
+        /// και Χαλκιδική (EL527) για το 2024–2025.
+        /// Επιλέγει ετήσια συχνότητα (A), ξενοδοχεία και παρόμοια καταλύματα
+        /// (I551), δωμάτια (BEDRM) και αριθμό δωματίων (NR).
+        /// Διατηρεί τις άγνωστες τιμές, τα flags και το raw περιεχόμενο.
+        /// Τα αποτελέσματα ταξινομούνται ανά περιοχή και έτος.
+        /// Ο K6 υπολογίζεται ως (δωμάτια / δωμάτια προηγούμενου έτους − 1) × 100.
+        /// Απαιτείται το αμέσως προηγούμενο έτος στην επιλεγμένη σειρά.
+        /// Η μεταβολή παραμένει null όταν λείπει απαιτούμενη τιμή
+        /// ή τα δωμάτια του προηγούμενου έτους είναι μηδέν.
+        /// Οι υπολογισμοί γίνονται με decimal, χωρίς ρητή στρογγυλοποίηση.
+        /// </remarks>
+        private async Task<List<AnnualHotelRooms>> AnalyzeAnnualHotelRooms()
+        {
+            var results = await _context
+                .AnnualAccommodationCapacity.AsNoTracking()
+                .Where(entity =>
+                    entity.Frequency == "A"
+                    && entity.AccommodationType == "I551"
+                    && entity.AccommodationUnit == "BEDRM"
+                    && entity.Unit == "NR"
+                    && entity.Year >= 2020
+                    && entity.Year <= 2025
+                    && (entity.Geo == "EL" || entity.Geo == "EL52" || (entity.Geo == "EL527" && entity.Year >= 2024))
+                )
+                .OrderBy(entity => entity.Geo)
+                .ThenBy(entity => entity.Year)
+                .Select(entity => new AnnualHotelRooms
+                {
+                    Dataset = "tour_cap_nuts2",
+                    Frequency = entity.Frequency,
+                    AccommodationType = entity.AccommodationType,
+                    AccommodationUnit = entity.AccommodationUnit,
+                    Unit = entity.Unit,
+                    Geo = entity.Geo,
+                    Year = entity.Year,
+                    Rooms = entity.Value,
+                    Flags = entity.Flags,
+                    RawValue = entity.RawValue,
+                })
+                .ToListAsync();
+
+            foreach (var result in results)
+            {
+                var previousYearResult = results.SingleOrDefault(previous => previous.Geo == result.Geo && previous.Year == result.Year - 1);
+
+                if (previousYearResult == null)
+                {
+                    continue;
+                }
+
+                result.PreviousYearRooms = previousYearResult.Rooms;
+                result.PreviousYearFlags = previousYearResult.Flags;
+
+                var rooms = result.Rooms;
+                var previousYearRooms = result.PreviousYearRooms;
+
+                if (!rooms.HasValue || !previousYearRooms.HasValue || previousYearRooms.Value == 0m)
+                {
+                    continue;
+                }
+
+                var annualRatio = rooms.Value / previousYearRooms.Value;
+
+                result.AnnualChangePercent = (annualRatio - 1m) * 100m;
+            }
+
+            return results;
+        }
+
+        private async Task SaveAnnualHotelRooms(List<AnnualHotelRooms> results)
+        {
+            await using var transaction = await _context.Database.BeginTransactionAsync();
+
+            var existingResults = await _context.AnnualHotelRooms.ToListAsync();
+
+            foreach (var result in results)
+            {
+                var existingResult = existingResults.SingleOrDefault(existing => existing.Geo == result.Geo && existing.Year == result.Year);
+
+                if (existingResult == null)
+                {
+                    _context.AnnualHotelRooms.Add(result);
+                    continue;
+                }
+
+                result.Id = existingResult.Id;
+
+                existingResult.Dataset = result.Dataset;
+                existingResult.Frequency = result.Frequency;
+                existingResult.AccommodationType = result.AccommodationType;
+                existingResult.AccommodationUnit = result.AccommodationUnit;
+                existingResult.Unit = result.Unit;
+
+                existingResult.Rooms = result.Rooms;
+                existingResult.PreviousYearRooms = result.PreviousYearRooms;
+                existingResult.AnnualChangePercent = result.AnnualChangePercent;
+
+                existingResult.Flags = result.Flags;
+                existingResult.PreviousYearFlags = result.PreviousYearFlags;
+                existingResult.RawValue = result.RawValue;
+            }
+
+            await _context.SaveChangesAsync();
+
+            await transaction.CommitAsync();
+        }
+        #endregion
+
+        #region K7 - Annual Room Occupancy
+        /// <summary>
+        /// Διαβάζει τη δημοσιευμένη ετήσια πληρότητα δωματίων
+        /// από το tour_occ_anor2.
+        /// </summary>
+        /// <remarks>
+        /// Καλύπτει Ελλάδα (EL) και Κεντρική Μακεδονία (EL52)
+        /// για την περίοδο 2020–2025.
+        /// Επιλέγει ετήσια συχνότητα (A), δωμάτια (BEDRM)
+        /// και μονάδα ποσοστού (PC).
+        /// Οι τιμές διατηρούν την κλίμακα 0–100 της πηγής.
+        /// Διατηρούνται οι άγνωστες τιμές, τα flags και το raw περιεχόμενο.
+        /// Τα αποτελέσματα ταξινομούνται ανά περιοχή και έτος.
+        /// Η ετήσια διαφορά υπολογίζεται ως τρέχουσα πληρότητα
+        /// μείον πληρότητα του αμέσως προηγούμενου έτους της ίδιας περιοχής.
+        /// Εκφράζεται σε ποσοστιαίες μονάδες.
+        /// Παραμένει null όταν λείπει το προηγούμενο έτος
+        /// ή κάποια από τις δύο τιμές.
+        /// Ο υπολογισμός γίνεται με decimal, χωρίς ρητή στρογγυλοποίηση.
+        /// </remarks>
+        private async Task<List<AnnualRoomOccupancy>> AnalyzeAnnualRoomOccupancy()
+        {
+            var results = await _context
+                .AnnualHotelOccupancy.AsNoTracking()
+                .Where(entity => entity.Frequency == "A" && entity.AccommodationUnit == "BEDRM" && entity.Unit == "PC" && (entity.Geo == "EL" || entity.Geo == "EL52") && entity.Year >= 2020 && entity.Year <= 2025)
+                .OrderBy(entity => entity.Geo)
+                .ThenBy(entity => entity.Year)
+                .Select(entity => new AnnualRoomOccupancy
+                {
+                    Dataset = "tour_occ_anor2",
+                    Frequency = entity.Frequency,
+                    AccommodationUnit = entity.AccommodationUnit,
+                    Unit = entity.Unit,
+                    Geo = entity.Geo,
+                    Year = entity.Year,
+                    OccupancyPercent = entity.Value,
+                    Flags = entity.Flags,
+                    RawValue = entity.RawValue,
+                })
+                .ToListAsync();
+
+            foreach (var result in results)
+            {
+                var previousYearResult = results.SingleOrDefault(previous => previous.Geo == result.Geo && previous.Year == result.Year - 1);
+
+                if (previousYearResult == null)
+                {
+                    continue;
+                }
+
+                result.PreviousYearOccupancyPercent = previousYearResult.OccupancyPercent;
+                result.PreviousYearFlags = previousYearResult.Flags;
+
+                var occupancyPercent = result.OccupancyPercent;
+                var previousYearOccupancyPercent = result.PreviousYearOccupancyPercent;
+
+                if (!occupancyPercent.HasValue || !previousYearOccupancyPercent.HasValue)
+                {
+                    continue;
+                }
+
+                result.AnnualChangePercentagePoints = occupancyPercent.Value - previousYearOccupancyPercent.Value;
+            }
+
+            return results;
+        }
+
+        private async Task SaveAnnualRoomOccupancy(List<AnnualRoomOccupancy> results)
+        {
+            await using var transaction = await _context.Database.BeginTransactionAsync();
+
+            var existingResults = await _context.AnnualRoomOccupancy.ToListAsync();
+
+            foreach (var result in results)
+            {
+                var existingResult = existingResults.SingleOrDefault(existing => existing.Geo == result.Geo && existing.Year == result.Year);
+
+                if (existingResult == null)
+                {
+                    _context.AnnualRoomOccupancy.Add(result);
+                    continue;
+                }
+
+                result.Id = existingResult.Id;
+
+                existingResult.Dataset = result.Dataset;
+                existingResult.Frequency = result.Frequency;
+                existingResult.AccommodationUnit = result.AccommodationUnit;
+                existingResult.Unit = result.Unit;
+
+                existingResult.OccupancyPercent = result.OccupancyPercent;
+                existingResult.PreviousYearOccupancyPercent = result.PreviousYearOccupancyPercent;
+                existingResult.AnnualChangePercentagePoints = result.AnnualChangePercentagePoints;
+
+                existingResult.Flags = result.Flags;
+                existingResult.PreviousYearFlags = result.PreviousYearFlags;
+                existingResult.RawValue = result.RawValue;
+            }
+
+            await _context.SaveChangesAsync();
+
+            await transaction.CommitAsync();
+        }
+        #endregion
+
+        #region K8 - Annual Platform Demand
+        /// <summary>
+        /// Διαβάζει τις ετήσιες διανυκτερεύσεις επισκεπτών
+        /// μέσω online πλατφορμών για την ανάλυση του K8.
+        /// </summary>
+        /// <remarks>
+        /// Καλύπτει Ελλάδα (EL), Κεντρική Μακεδονία (EL52)
+        /// και Χαλκιδική (EL527) για την περίοδο 2020–2025.
+        /// Για EL/EL52 χρησιμοποιεί το ετήσιο month=TOTAL του tour_ce_omn12.
+        /// Για EL527 χρησιμοποιεί το ετήσιο tour_ce_oan3.
+        /// Κοινά φίλτρα: συχνότητα A, δείκτης NGT_SP (guest nights),
+        /// κατοικία επισκέπτη TOTAL και μονάδα αριθμού NR.
+        /// Κάθε περιοχή διατηρείται χωριστά, μαζί με την πηγή της.
+        /// Διατηρούνται οι άγνωστες τιμές, τα flags και το raw περιεχόμενο.
+        /// Ο K8 υπολογίζεται ως (guest nights / προηγούμενες guest nights − 1) × 100.
+        /// Απαιτείται το αμέσως προηγούμενο έτος της ίδιας περιοχής
+        /// μέσα στην επιλεγμένη σειρά.
+        /// Η μεταβολή παραμένει null όταν λείπει απαιτούμενη τιμή
+        /// ή οι προηγούμενες guest nights είναι μηδέν.
+        /// Οι υπολογισμοί γίνονται με decimal, χωρίς ρητή στρογγυλοποίηση.
+        /// </remarks>
+        private async Task<List<AnnualPlatformDemand>> AnalyzeAnnualPlatformDemand()
+        {
+            var results = await _context
+                .MonthlyPlatformActivity.AsNoTracking()
+                .Where(entity =>
+                    entity.Frequency == "A"
+                    && entity.Indicator == "NGT_SP"
+                    && entity.Residence == "TOTAL"
+                    && entity.Month == "TOTAL"
+                    && entity.Unit == "NR"
+                    && (entity.Geo == "EL" || entity.Geo == "EL52")
+                    && entity.Year >= 2020
+                    && entity.Year <= 2025
+                )
+                .Select(entity => new AnnualPlatformDemand
+                {
+                    Dataset = "tour_ce_omn12",
+                    Frequency = entity.Frequency,
+                    Indicator = entity.Indicator,
+                    Residence = entity.Residence,
+                    Month = entity.Month,
+                    Unit = entity.Unit,
+                    Geo = entity.Geo,
+                    Year = entity.Year,
+                    GuestNights = entity.Value,
+                    Flags = entity.Flags,
+                    RawValue = entity.RawValue,
+                })
+                .ToListAsync();
+
+            var chalkidikiResults = await _context
+                .AnnualPlatformGuestNights.AsNoTracking()
+                .Where(entity => entity.Frequency == "A" && entity.Indicator == "NGT_SP" && entity.Residence == "TOTAL" && entity.Unit == "NR" && entity.Geo == "EL527" && entity.Year >= 2020 && entity.Year <= 2025)
+                .Select(entity => new AnnualPlatformDemand
+                {
+                    Dataset = "tour_ce_oan3",
+                    Frequency = entity.Frequency,
+                    Indicator = entity.Indicator,
+                    Residence = entity.Residence,
+                    Month = null,
+                    Unit = entity.Unit,
+                    Geo = entity.Geo,
+                    Year = entity.Year,
+                    GuestNights = entity.Value,
+                    Flags = entity.Flags,
+                    RawValue = entity.RawValue,
+                })
+                .ToListAsync();
+
+            results.AddRange(chalkidikiResults);
+
+            var orderedResults = results.OrderBy(result => result.Geo).ThenBy(result => result.Year).ToList();
+
+            foreach (var result in orderedResults)
+            {
+                var previousYearResult = orderedResults.SingleOrDefault(previous => previous.Geo == result.Geo && previous.Year == result.Year - 1);
+
+                if (previousYearResult == null)
+                {
+                    continue;
+                }
+
+                result.PreviousYearGuestNights = previousYearResult.GuestNights;
+                result.PreviousYearFlags = previousYearResult.Flags;
+
+                var guestNights = result.GuestNights;
+                var previousYearGuestNights = result.PreviousYearGuestNights;
+
+                if (!guestNights.HasValue || !previousYearGuestNights.HasValue || previousYearGuestNights.Value == 0m)
+                {
+                    continue;
+                }
+
+                var annualRatio = guestNights.Value / previousYearGuestNights.Value;
+
+                result.AnnualChangePercent = (annualRatio - 1m) * 100m;
+            }
+
+            return orderedResults;
+        }
+
+        private async Task SaveAnnualPlatformDemand(List<AnnualPlatformDemand> results)
+        {
+            await using var transaction = await _context.Database.BeginTransactionAsync();
+
+            var existingResults = await _context.AnnualPlatformDemand.ToListAsync();
+
+            foreach (var result in results)
+            {
+                var existingResult = existingResults.SingleOrDefault(existing => existing.Geo == result.Geo && existing.Year == result.Year);
+
+                if (existingResult == null)
+                {
+                    _context.AnnualPlatformDemand.Add(result);
+                    continue;
+                }
+
+                result.Id = existingResult.Id;
+
+                existingResult.Dataset = result.Dataset;
+                existingResult.Frequency = result.Frequency;
+                existingResult.Indicator = result.Indicator;
+                existingResult.Residence = result.Residence;
+                existingResult.Month = result.Month;
+                existingResult.Unit = result.Unit;
+
+                existingResult.GuestNights = result.GuestNights;
+                existingResult.PreviousYearGuestNights = result.PreviousYearGuestNights;
+                existingResult.AnnualChangePercent = result.AnnualChangePercent;
+
+                existingResult.Flags = result.Flags;
+                existingResult.PreviousYearFlags = result.PreviousYearFlags;
+                existingResult.RawValue = result.RawValue;
             }
 
             await _context.SaveChangesAsync();

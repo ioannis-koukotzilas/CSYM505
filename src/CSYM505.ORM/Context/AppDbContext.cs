@@ -37,6 +37,12 @@ namespace CSYM505.ORM.Context
 
         public DbSet<MonthlyLengthOfStay> MonthlyLengthOfStay { get; set; } = null!;
 
+        public DbSet<AnnualHotelRooms> AnnualHotelRooms { get; set; } = null!;
+
+        public DbSet<AnnualRoomOccupancy> AnnualRoomOccupancy { get; set; } = null!;
+
+        public DbSet<AnnualPlatformDemand> AnnualPlatformDemand { get; set; } = null!;
+
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options) { }
 
