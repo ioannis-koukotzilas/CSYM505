@@ -534,6 +534,180 @@ namespace CSYM505.ORM.Migrations
                     b.ToTable("tour_ce_oan3", (string)null);
                 });
 
+            modelBuilder.Entity("CSYM505.Model.Entities.AnnualRegionalExpenditurePerNight", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("id");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("country");
+
+                    b.Property<string>("Flags")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("flags");
+
+                    b.Property<string>("Frequency")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("freq");
+
+                    b.Property<string>("Geo")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("geo");
+
+                    b.Property<string>("RawValue")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("raw_value");
+
+                    b.Property<string>("Region")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("region");
+
+                    b.Property<string>("Unit")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("unit");
+
+                    b.Property<decimal?>("Value")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("value");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("year");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Frequency", "Geo", "Country", "Year", "Unit")
+                        .IsUnique();
+
+                    b.ToTable("bog_regional_expenditure_per_night", (string)null);
+                });
+
+            modelBuilder.Entity("CSYM505.Model.Entities.AnnualRegionalLengthOfStay", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("id");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("country");
+
+                    b.Property<string>("Flags")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("flags");
+
+                    b.Property<string>("Frequency")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("freq");
+
+                    b.Property<string>("Geo")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("geo");
+
+                    b.Property<string>("RawValue")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("raw_value");
+
+                    b.Property<string>("Region")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("region");
+
+                    b.Property<string>("Unit")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("unit");
+
+                    b.Property<decimal?>("Value")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("value");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("year");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Frequency", "Geo", "Country", "Year", "Unit")
+                        .IsUnique();
+
+                    b.ToTable("bog_regional_length_of_stay", (string)null);
+                });
+
+            modelBuilder.Entity("CSYM505.Model.Entities.AnnualRegionalTravelReceipts", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("id");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("country");
+
+                    b.Property<string>("Flags")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("flags");
+
+                    b.Property<string>("Frequency")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("freq");
+
+                    b.Property<string>("Geo")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("geo");
+
+                    b.Property<string>("RawValue")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("raw_value");
+
+                    b.Property<string>("Region")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("region");
+
+                    b.Property<string>("Unit")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("unit");
+
+                    b.Property<decimal?>("Value")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("value");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("year");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Frequency", "Geo", "Country", "Year", "Unit")
+                        .IsUnique();
+
+                    b.ToTable("bog_regional_travel_receipts", (string)null);
+                });
+
             modelBuilder.Entity("CSYM505.Model.Entities.AnnualRoomOccupancy", b =>
                 {
                     b.Property<int>("Id")

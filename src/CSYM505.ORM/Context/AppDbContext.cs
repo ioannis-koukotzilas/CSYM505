@@ -26,6 +26,13 @@ namespace CSYM505.ORM.Context
 
         public DbSet<AnnualHotelOccupancy> AnnualHotelOccupancy { get; set; } = null!;
 
+        // Bank of Greece
+        public DbSet<AnnualRegionalTravelReceipts> AnnualRegionalTravelReceipts { get; set; } = null!;
+
+        public DbSet<AnnualRegionalExpenditurePerNight> AnnualRegionalExpenditurePerNight { get; set; } = null!;
+
+        public DbSet<AnnualRegionalLengthOfStay> AnnualRegionalLengthOfStay { get; set; } = null!;
+
         // Analytics
         public DbSet<AnnualDemand> AnnualDemand { get; set; } = null!;
 

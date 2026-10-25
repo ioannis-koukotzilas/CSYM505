@@ -22,74 +22,43 @@ namespace CSYM505.Api.Controllers.ImportDataApi
             var results = new List<ImportDataResult>();
 
             var annualNightsRows = await ImportTourOccNin3();
-            results.Add(new ImportDataResult
-            {
-                Dataset = "tour_occ_nin3",
-                ImportedRows = annualNightsRows
-            });
+            results.Add(new ImportDataResult { Dataset = "tour_occ_nin3", ImportedRows = annualNightsRows });
 
             var monthlyNightsRows = await ImportTourOccNin2m();
-            results.Add(new ImportDataResult
-            {
-                Dataset = "tour_occ_nin2m",
-                ImportedRows = monthlyNightsRows
-            });
+            results.Add(new ImportDataResult { Dataset = "tour_occ_nin2m", ImportedRows = monthlyNightsRows });
 
             var nationalMonthlyNightsRows = await ImportTourOccNim();
-            results.Add(new ImportDataResult
-            {
-                Dataset = "tour_occ_nim",
-                ImportedRows = nationalMonthlyNightsRows
-            });
+            results.Add(new ImportDataResult { Dataset = "tour_occ_nim", ImportedRows = nationalMonthlyNightsRows });
 
             var nationalMonthlyArrivalsRows = await ImportTourOccArm();
-            results.Add(new ImportDataResult
-            {
-                Dataset = "tour_occ_arm",
-                ImportedRows = nationalMonthlyArrivalsRows
-            });
+            results.Add(new ImportDataResult { Dataset = "tour_occ_arm", ImportedRows = nationalMonthlyArrivalsRows });
 
             var annualArrivalsRows = await ImportTourOccArn2();
-            results.Add(new ImportDataResult
-            {
-                Dataset = "tour_occ_arn2",
-                ImportedRows = annualArrivalsRows
-            });
+            results.Add(new ImportDataResult { Dataset = "tour_occ_arn2", ImportedRows = annualArrivalsRows });
 
             var monthlyPlatformActivityRows = await ImportTourCeOmn12();
-            results.Add(new ImportDataResult
-            {
-                Dataset = "tour_ce_omn12",
-                ImportedRows = monthlyPlatformActivityRows
-            });
+            results.Add(new ImportDataResult { Dataset = "tour_ce_omn12", ImportedRows = monthlyPlatformActivityRows });
 
             var nationalMonthlyPlatformActivityRows = await ImportTourCeOmr();
-            results.Add(new ImportDataResult
-            {
-                Dataset = "tour_ce_omr",
-                ImportedRows = nationalMonthlyPlatformActivityRows
-            });
+            results.Add(new ImportDataResult { Dataset = "tour_ce_omr", ImportedRows = nationalMonthlyPlatformActivityRows });
 
             var annualPlatformGuestNightsRows = await ImportTourCeOan3();
-            results.Add(new ImportDataResult
-            {
-                Dataset = "tour_ce_oan3",
-                ImportedRows = annualPlatformGuestNightsRows
-            });
+            results.Add(new ImportDataResult { Dataset = "tour_ce_oan3", ImportedRows = annualPlatformGuestNightsRows });
 
             var annualCapacityRows = await ImportTourCapNuts2();
-            results.Add(new ImportDataResult
-            {
-                Dataset = "tour_cap_nuts2",
-                ImportedRows = annualCapacityRows
-            });
+            results.Add(new ImportDataResult { Dataset = "tour_cap_nuts2", ImportedRows = annualCapacityRows });
 
             var annualOccupancyRows = await ImportTourOccAnor2();
-            results.Add(new ImportDataResult
-            {
-                Dataset = "tour_occ_anor2",
-                ImportedRows = annualOccupancyRows
-            });
+            results.Add(new ImportDataResult { Dataset = "tour_occ_anor2", ImportedRows = annualOccupancyRows });
+
+            var travelReceiptsRows = await ImportBankOfGreeceRegionalTravelReceipts();
+            results.Add(new ImportDataResult { Dataset = "bog_regional_travel_receipts", ImportedRows = travelReceiptsRows });
+
+            var expenditurePerNightRows = await ImportBankOfGreeceRegionalExpenditurePerNight();
+            results.Add(new ImportDataResult { Dataset = "bog_regional_expenditure_per_night", ImportedRows = expenditurePerNightRows });
+
+            var lengthOfStayRows = await ImportBankOfGreeceRegionalLengthOfStay();
+            results.Add(new ImportDataResult { Dataset = "bog_regional_length_of_stay", ImportedRows = lengthOfStayRows });
 
             return results;
         }
@@ -183,7 +152,7 @@ namespace CSYM505.Api.Controllers.ImportDataApi
                     Year = year,
                     Value = value,
                     Flags = row[7],
-                    RawValue = row[8]
+                    RawValue = row[8],
                 };
 
                 entities.Add(entity);
@@ -196,6 +165,7 @@ namespace CSYM505.Api.Controllers.ImportDataApi
 
             return entities;
         }
+
         private async Task<int> ImportTourOccNin2m()
         {
             var entities = await ReadTourOccNin2m();
@@ -293,7 +263,7 @@ namespace CSYM505.Api.Controllers.ImportDataApi
                     Year = year,
                     Value = value,
                     Flags = row[8],
-                    RawValue = row[9]
+                    RawValue = row[9],
                 };
 
                 entities.Add(entity);
@@ -358,11 +328,7 @@ namespace CSYM505.Api.Controllers.ImportDataApi
                 var timePeriod = row[5];
                 var valueText = row[6];
 
-                if (frequency != "M"
-                    || string.IsNullOrWhiteSpace(residence)
-                    || string.IsNullOrWhiteSpace(unit)
-                    || string.IsNullOrWhiteSpace(accommodationType)
-                    || string.IsNullOrWhiteSpace(row[8]))
+                if (frequency != "M" || string.IsNullOrWhiteSpace(residence) || string.IsNullOrWhiteSpace(unit) || string.IsNullOrWhiteSpace(accommodationType) || string.IsNullOrWhiteSpace(row[8]))
                 {
                     throw new FormatException($"Missing or invalid dimensions at tour_occ_nim CSV row {rowNumber}.");
                 }
@@ -401,7 +367,7 @@ namespace CSYM505.Api.Controllers.ImportDataApi
                     TimePeriod = timePeriod,
                     Value = value,
                     Flags = row[7],
-                    RawValue = row[8]
+                    RawValue = row[8],
                 };
 
                 entities.Add(entity);
@@ -466,11 +432,7 @@ namespace CSYM505.Api.Controllers.ImportDataApi
                 var timePeriod = row[5];
                 var valueText = row[6];
 
-                if (frequency != "M"
-                    || string.IsNullOrWhiteSpace(residence)
-                    || string.IsNullOrWhiteSpace(unit)
-                    || string.IsNullOrWhiteSpace(accommodationType)
-                    || string.IsNullOrWhiteSpace(row[8]))
+                if (frequency != "M" || string.IsNullOrWhiteSpace(residence) || string.IsNullOrWhiteSpace(unit) || string.IsNullOrWhiteSpace(accommodationType) || string.IsNullOrWhiteSpace(row[8]))
                 {
                     throw new FormatException($"Missing or invalid dimensions at tour_occ_arm CSV row {rowNumber}.");
                 }
@@ -509,7 +471,7 @@ namespace CSYM505.Api.Controllers.ImportDataApi
                     TimePeriod = timePeriod,
                     Value = value,
                     Flags = row[7],
-                    RawValue = row[8]
+                    RawValue = row[8],
                 };
 
                 entities.Add(entity);
@@ -573,11 +535,7 @@ namespace CSYM505.Api.Controllers.ImportDataApi
 
                 var valueText = row[6];
 
-                if (frequency != "A"
-                    || string.IsNullOrWhiteSpace(residence)
-                    || string.IsNullOrWhiteSpace(unit)
-                    || string.IsNullOrWhiteSpace(accommodationType)
-                    || string.IsNullOrWhiteSpace(row[8]))
+                if (frequency != "A" || string.IsNullOrWhiteSpace(residence) || string.IsNullOrWhiteSpace(unit) || string.IsNullOrWhiteSpace(accommodationType) || string.IsNullOrWhiteSpace(row[8]))
                 {
                     throw new FormatException($"Missing or invalid dimensions at tour_occ_arn2 CSV row {rowNumber}.");
                 }
@@ -616,7 +574,7 @@ namespace CSYM505.Api.Controllers.ImportDataApi
                     Year = year,
                     Value = value,
                     Flags = row[7],
-                    RawValue = row[8]
+                    RawValue = row[8],
                 };
 
                 entities.Add(entity);
@@ -683,10 +641,7 @@ namespace CSYM505.Api.Controllers.ImportDataApi
 
                 var valueText = row[7];
 
-                if (frequency != "A"
-                    || string.IsNullOrWhiteSpace(residence)
-                    || string.IsNullOrWhiteSpace(unit)
-                    || string.IsNullOrWhiteSpace(row[9]))
+                if (frequency != "A" || string.IsNullOrWhiteSpace(residence) || string.IsNullOrWhiteSpace(unit) || string.IsNullOrWhiteSpace(row[9]))
                 {
                     throw new FormatException($"Missing or invalid dimensions at tour_ce_omn12 CSV row {rowNumber}.");
                 }
@@ -736,7 +691,7 @@ namespace CSYM505.Api.Controllers.ImportDataApi
                     Year = year,
                     Value = value,
                     Flags = row[8],
-                    RawValue = row[9]
+                    RawValue = row[9],
                 };
 
                 entities.Add(entity);
@@ -803,10 +758,7 @@ namespace CSYM505.Api.Controllers.ImportDataApi
 
                 var valueText = row[7];
 
-                if (frequency != "A"
-                    || string.IsNullOrWhiteSpace(residence)
-                    || string.IsNullOrWhiteSpace(unit)
-                    || string.IsNullOrWhiteSpace(row[9]))
+                if (frequency != "A" || string.IsNullOrWhiteSpace(residence) || string.IsNullOrWhiteSpace(unit) || string.IsNullOrWhiteSpace(row[9]))
                 {
                     throw new FormatException($"Missing or invalid dimensions at tour_ce_omr CSV row {rowNumber}.");
                 }
@@ -856,7 +808,7 @@ namespace CSYM505.Api.Controllers.ImportDataApi
                     Year = year,
                     Value = value,
                     Flags = row[8],
-                    RawValue = row[9]
+                    RawValue = row[9],
                 };
 
                 entities.Add(entity);
@@ -920,10 +872,7 @@ namespace CSYM505.Api.Controllers.ImportDataApi
 
                 var valueText = row[6];
 
-                if (frequency != "A"
-                    || string.IsNullOrWhiteSpace(residence)
-                    || string.IsNullOrWhiteSpace(unit)
-                    || string.IsNullOrWhiteSpace(row[8]))
+                if (frequency != "A" || string.IsNullOrWhiteSpace(residence) || string.IsNullOrWhiteSpace(unit) || string.IsNullOrWhiteSpace(row[8]))
                 {
                     throw new FormatException($"Missing or invalid dimensions at tour_ce_oan3 CSV row {rowNumber}.");
                 }
@@ -967,7 +916,7 @@ namespace CSYM505.Api.Controllers.ImportDataApi
                     Year = year,
                     Value = value,
                     Flags = row[7],
-                    RawValue = row[8]
+                    RawValue = row[8],
                 };
 
                 entities.Add(entity);
@@ -1033,10 +982,7 @@ namespace CSYM505.Api.Controllers.ImportDataApi
 
                 var valueText = row[6];
 
-                if (frequency != "A"
-                    || string.IsNullOrWhiteSpace(unit)
-                    || string.IsNullOrWhiteSpace(accommodationType)
-                    || string.IsNullOrWhiteSpace(row[8]))
+                if (frequency != "A" || string.IsNullOrWhiteSpace(unit) || string.IsNullOrWhiteSpace(accommodationType) || string.IsNullOrWhiteSpace(row[8]))
                 {
                     throw new FormatException($"Missing or invalid dimensions at tour_cap_nuts2 CSV row {rowNumber}.");
                 }
@@ -1080,7 +1026,7 @@ namespace CSYM505.Api.Controllers.ImportDataApi
                     Year = year,
                     Value = value,
                     Flags = row[7],
-                    RawValue = row[8]
+                    RawValue = row[8],
                 };
 
                 entities.Add(entity);
@@ -1145,9 +1091,7 @@ namespace CSYM505.Api.Controllers.ImportDataApi
 
                 var valueText = row[5];
 
-                if (frequency != "A"
-                    || unit != "PC"
-                    || string.IsNullOrWhiteSpace(row[7]))
+                if (frequency != "A" || unit != "PC" || string.IsNullOrWhiteSpace(row[7]))
                 {
                     throw new FormatException($"Missing or invalid dimensions at tour_occ_anor2 CSV row {rowNumber}.");
                 }
@@ -1190,7 +1134,7 @@ namespace CSYM505.Api.Controllers.ImportDataApi
                     Year = year,
                     Value = value,
                     Flags = row[6],
-                    RawValue = row[7]
+                    RawValue = row[7],
                 };
 
                 entities.Add(entity);
@@ -1199,6 +1143,339 @@ namespace CSYM505.Api.Controllers.ImportDataApi
             if (entities.Count == 0)
             {
                 throw new InvalidOperationException("No Greek data rows were found in tour_occ_anor2.csv. The existing table was not changed.");
+            }
+
+            return entities;
+        }
+
+        private async Task<int> ImportBankOfGreeceRegionalTravelReceipts()
+        {
+            var entities = await ReadBankOfGreeceRegionalTravelReceipts();
+
+            await using var transaction = await _context.Database.BeginTransactionAsync();
+
+            await _context.AnnualRegionalTravelReceipts.ExecuteDeleteAsync();
+
+            const int batchSize = 5000;
+
+            foreach (var batch in entities.Chunk(batchSize))
+            {
+                _context.AnnualRegionalTravelReceipts.AddRange(batch);
+                await _context.SaveChangesAsync();
+
+                _context.ChangeTracker.Clear();
+            }
+
+            await transaction.CommitAsync();
+
+            return entities.Count;
+        }
+
+        private async Task<List<AnnualRegionalTravelReceipts>> ReadBankOfGreeceRegionalTravelReceipts()
+        {
+            var filePath = Path.GetFullPath(Path.Combine(_environment.ContentRootPath, "..", "..", "etl", "data", "processed", "bog_regional_travel_receipts.csv"));
+
+            var expectedColumns = new[] { "freq", "geo", "region", "country", "year", "unit", "value", "flags", "raw_value" };
+
+            var rows = await CsvFileHelper.ReadRowsAsync(filePath, expectedColumns);
+            var entities = new List<AnnualRegionalTravelReceipts>();
+            var rowNumber = 1;
+
+            foreach (var row in rows)
+            {
+                rowNumber++;
+
+                var frequency = row[0];
+                var geo = row[1];
+                var region = row[2];
+                var country = row[3];
+                var unit = row[5];
+                var valueText = row[6];
+                var flags = row[7];
+                var rawValue = row[8];
+
+                if (geo != "EL52")
+                {
+                    continue;
+                }
+
+                if (!int.TryParse(row[4], NumberStyles.None, CultureInfo.InvariantCulture, out var year) || year < 1 || year > 9999)
+                {
+                    throw new FormatException($"Invalid year at bog_regional_travel_receipts CSV row {rowNumber}.");
+                }
+
+                if (year < 2020 || year > 2025)
+                {
+                    continue;
+                }
+
+                if (frequency != "A" || unit != "MIO_EUR" || string.IsNullOrWhiteSpace(region) || string.IsNullOrWhiteSpace(country) || string.IsNullOrWhiteSpace(rawValue))
+                {
+                    throw new FormatException($"Missing or invalid dimensions at bog_regional_travel_receipts CSV row {rowNumber}.");
+                }
+
+                decimal? value = null;
+
+                if (string.IsNullOrEmpty(valueText))
+                {
+                    if (flags != "(:)" || rawValue != "(:)")
+                    {
+                        throw new FormatException($"Invalid unpublished value at bog_regional_travel_receipts CSV row {rowNumber}.");
+                    }
+                }
+                else
+                {
+                    var numberStyles = NumberStyles.AllowLeadingSign | NumberStyles.AllowDecimalPoint;
+
+                    if (!decimal.TryParse(valueText, numberStyles, CultureInfo.InvariantCulture, out var parsedValue) || parsedValue < 0 || !string.IsNullOrEmpty(flags))
+                    {
+                        throw new FormatException($"Invalid value at bog_regional_travel_receipts CSV row {rowNumber}.");
+                    }
+
+                    value = parsedValue;
+                }
+
+                var entity = new AnnualRegionalTravelReceipts
+                {
+                    Frequency = frequency,
+                    Geo = geo,
+                    Region = region,
+                    Country = country,
+                    Year = year,
+                    Unit = unit,
+                    Value = value,
+                    Flags = flags,
+                    RawValue = rawValue,
+                };
+
+                entities.Add(entity);
+            }
+
+            if (entities.Count == 0)
+            {
+                throw new InvalidOperationException("No EL52 data rows for 2020–2025 were found in bog_regional_travel_receipts.csv. The existing table was not changed.");
+            }
+
+            return entities;
+        }
+
+        private async Task<int> ImportBankOfGreeceRegionalExpenditurePerNight()
+        {
+            var entities = await ReadBankOfGreeceRegionalExpenditurePerNight();
+
+            await using var transaction = await _context.Database.BeginTransactionAsync();
+
+            await _context.AnnualRegionalExpenditurePerNight.ExecuteDeleteAsync();
+
+            const int batchSize = 5000;
+
+            foreach (var batch in entities.Chunk(batchSize))
+            {
+                _context.AnnualRegionalExpenditurePerNight.AddRange(batch);
+                await _context.SaveChangesAsync();
+
+                _context.ChangeTracker.Clear();
+            }
+
+            await transaction.CommitAsync();
+
+            return entities.Count;
+        }
+
+        private async Task<List<AnnualRegionalExpenditurePerNight>> ReadBankOfGreeceRegionalExpenditurePerNight()
+        {
+            var filePath = Path.GetFullPath(Path.Combine(_environment.ContentRootPath, "..", "..", "etl", "data", "processed", "bog_regional_expenditure_per_night.csv"));
+
+            var expectedColumns = new[] { "freq", "geo", "region", "country", "year", "unit", "value", "flags", "raw_value" };
+
+            var rows = await CsvFileHelper.ReadRowsAsync(filePath, expectedColumns);
+            var entities = new List<AnnualRegionalExpenditurePerNight>();
+            var rowNumber = 1;
+
+            foreach (var row in rows)
+            {
+                rowNumber++;
+
+                var frequency = row[0];
+                var geo = row[1];
+                var region = row[2];
+                var country = row[3];
+                var unit = row[5];
+                var valueText = row[6];
+                var flags = row[7];
+                var rawValue = row[8];
+
+                if (geo != "EL52")
+                {
+                    continue;
+                }
+
+                if (!int.TryParse(row[4], NumberStyles.None, CultureInfo.InvariantCulture, out var year) || year < 1 || year > 9999)
+                {
+                    throw new FormatException($"Invalid year at bog_regional_expenditure_per_night CSV row {rowNumber}.");
+                }
+
+                if (year < 2020 || year > 2025)
+                {
+                    continue;
+                }
+
+                if (frequency != "A" || unit != "EUR_PER_NIGHT" || string.IsNullOrWhiteSpace(region) || string.IsNullOrWhiteSpace(country) || string.IsNullOrWhiteSpace(rawValue))
+                {
+                    throw new FormatException($"Missing or invalid dimensions at bog_regional_expenditure_per_night CSV row {rowNumber}.");
+                }
+
+                decimal? value = null;
+
+                if (string.IsNullOrEmpty(valueText))
+                {
+                    if (flags != "(:)" || rawValue != "(:)")
+                    {
+                        throw new FormatException($"Invalid unpublished value at bog_regional_expenditure_per_night CSV row {rowNumber}.");
+                    }
+                }
+                else
+                {
+                    var numberStyles = NumberStyles.AllowLeadingSign | NumberStyles.AllowDecimalPoint;
+
+                    if (!decimal.TryParse(valueText, numberStyles, CultureInfo.InvariantCulture, out var parsedValue) || parsedValue < 0 || !string.IsNullOrEmpty(flags))
+                    {
+                        throw new FormatException($"Invalid value at bog_regional_expenditure_per_night CSV row {rowNumber}.");
+                    }
+
+                    value = parsedValue;
+                }
+
+                var entity = new AnnualRegionalExpenditurePerNight
+                {
+                    Frequency = frequency,
+                    Geo = geo,
+                    Region = region,
+                    Country = country,
+                    Year = year,
+                    Unit = unit,
+                    Value = value,
+                    Flags = flags,
+                    RawValue = rawValue,
+                };
+
+                entities.Add(entity);
+            }
+
+            if (entities.Count == 0)
+            {
+                throw new InvalidOperationException("No EL52 data rows for 2020–2025 were found in bog_regional_expenditure_per_night.csv. The existing table was not changed.");
+            }
+
+            return entities;
+        }
+
+        private async Task<int> ImportBankOfGreeceRegionalLengthOfStay()
+        {
+            var entities = await ReadBankOfGreeceRegionalLengthOfStay();
+
+            await using var transaction = await _context.Database.BeginTransactionAsync();
+
+            await _context.AnnualRegionalLengthOfStay.ExecuteDeleteAsync();
+
+            const int batchSize = 5000;
+
+            foreach (var batch in entities.Chunk(batchSize))
+            {
+                _context.AnnualRegionalLengthOfStay.AddRange(batch);
+                await _context.SaveChangesAsync();
+
+                _context.ChangeTracker.Clear();
+            }
+
+            await transaction.CommitAsync();
+
+            return entities.Count;
+        }
+
+        private async Task<List<AnnualRegionalLengthOfStay>> ReadBankOfGreeceRegionalLengthOfStay()
+        {
+            var filePath = Path.GetFullPath(Path.Combine(_environment.ContentRootPath, "..", "..", "etl", "data", "processed", "bog_regional_length_of_stay.csv"));
+
+            var expectedColumns = new[] { "freq", "geo", "region", "country", "year", "unit", "value", "flags", "raw_value" };
+
+            var rows = await CsvFileHelper.ReadRowsAsync(filePath, expectedColumns);
+            var entities = new List<AnnualRegionalLengthOfStay>();
+            var rowNumber = 1;
+
+            foreach (var row in rows)
+            {
+                rowNumber++;
+
+                var frequency = row[0];
+                var geo = row[1];
+                var region = row[2];
+                var country = row[3];
+                var unit = row[5];
+                var valueText = row[6];
+                var flags = row[7];
+                var rawValue = row[8];
+
+                if (geo != "EL52")
+                {
+                    continue;
+                }
+
+                if (!int.TryParse(row[4], NumberStyles.None, CultureInfo.InvariantCulture, out var year) || year < 1 || year > 9999)
+                {
+                    throw new FormatException($"Invalid year at bog_regional_length_of_stay CSV row {rowNumber}.");
+                }
+
+                if (year < 2020 || year > 2025)
+                {
+                    continue;
+                }
+
+                if (frequency != "A" || unit != "NIGHTS_PER_VISIT" || string.IsNullOrWhiteSpace(region) || string.IsNullOrWhiteSpace(country) || string.IsNullOrWhiteSpace(rawValue))
+                {
+                    throw new FormatException($"Missing or invalid dimensions at bog_regional_length_of_stay CSV row {rowNumber}.");
+                }
+
+                decimal? value = null;
+
+                if (string.IsNullOrEmpty(valueText))
+                {
+                    if (flags != "(:)" || rawValue != "(:)")
+                    {
+                        throw new FormatException($"Invalid unpublished value at bog_regional_length_of_stay CSV row {rowNumber}.");
+                    }
+                }
+                else
+                {
+                    var numberStyles = NumberStyles.AllowLeadingSign | NumberStyles.AllowDecimalPoint;
+
+                    if (!decimal.TryParse(valueText, numberStyles, CultureInfo.InvariantCulture, out var parsedValue) || parsedValue < 0 || !string.IsNullOrEmpty(flags))
+                    {
+                        throw new FormatException($"Invalid value at bog_regional_length_of_stay CSV row {rowNumber}.");
+                    }
+
+                    value = parsedValue;
+                }
+
+                var entity = new AnnualRegionalLengthOfStay
+                {
+                    Frequency = frequency,
+                    Geo = geo,
+                    Region = region,
+                    Country = country,
+                    Year = year,
+                    Unit = unit,
+                    Value = value,
+                    Flags = flags,
+                    RawValue = rawValue,
+                };
+
+                entities.Add(entity);
+            }
+
+            if (entities.Count == 0)
+            {
+                throw new InvalidOperationException("No EL52 data rows for 2020–2025 were found in bog_regional_length_of_stay.csv. The existing table was not changed.");
             }
 
             return entities;
