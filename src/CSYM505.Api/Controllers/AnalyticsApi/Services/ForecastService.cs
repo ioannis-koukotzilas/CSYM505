@@ -1,6 +1,7 @@
 using System.Globalization;
 using CSYM505.Api.Controllers.AnalyticsApi.Dtos;
 using CSYM505.Api.Controllers.AnalyticsApi.Helpers;
+using CSYM505.Model.Entities;
 using CSYM505.ORM.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,6 +27,7 @@ namespace CSYM505.Api.Controllers.AnalyticsApi.Services
         /// Τα έτη 2020–2021 εξαιρούνται λόγω COVID-19, όπως συμφωνήθηκε.
         /// Χρησιμοποιεί ιστορικό 2022–2025 και εκπαιδεύει χωριστό ETS για κάθε σειρά.
         /// Προβλέπει τους 24 μήνες Ιανουαρίου 2026–Δεκεμβρίου 2027.
+        /// Αποθηκεύει τις προβλέψεις και των δύο σειρών σε ένα κοινό transaction.
         /// </remarks>
         public async Task<ForecastResult> AnalyzeForecast()
         {
@@ -41,6 +43,48 @@ namespace CSYM505.Api.Controllers.AnalyticsApi.Services
 
             var accommodationPredictions = await CalculateETSForecast(validatedAccommodationObservations, horizon);
             var platformPredictions = await CalculateETSForecast(validatedPlatformObservations, horizon);
+
+            var forecasts = new List<MonthlyForecast>();
+
+            foreach (var prediction in accommodationPredictions)
+            {
+                forecasts.Add(
+                    new MonthlyForecast
+                    {
+                        Series = "F1",
+                        Dataset = "tour_occ_nin2m",
+                        Geo = "EL52",
+                        Unit = "NR",
+                        TrainingStartMonth = startMonth,
+                        TrainingEndMonth = endMonth,
+                        HorizonMonths = horizon,
+                        Month = prediction.Month,
+                        Method = prediction.Method,
+                        PredictedValue = prediction.PredictedValue,
+                    }
+                );
+            }
+
+            foreach (var prediction in platformPredictions)
+            {
+                forecasts.Add(
+                    new MonthlyForecast
+                    {
+                        Series = "F2",
+                        Dataset = "tour_ce_omn12",
+                        Geo = "EL52",
+                        Unit = "NR",
+                        TrainingStartMonth = startMonth,
+                        TrainingEndMonth = endMonth,
+                        HorizonMonths = horizon,
+                        Month = prediction.Month,
+                        Method = prediction.Method,
+                        PredictedValue = prediction.PredictedValue,
+                    }
+                );
+            }
+
+            await SaveMonthlyForecast(forecasts);
 
             return new ForecastResult
             {
@@ -244,6 +288,47 @@ namespace CSYM505.Api.Controllers.AnalyticsApi.Services
             }
 
             return predictions;
+        }
+
+        /// <summary>
+        /// Αποθηκεύει τις προβλέψεις και τα στοιχεία εκπαίδευσης.
+        /// Η επανεκτέλεση ενημερώνει την ίδια σειρά, περιοχή και μήνα.
+        /// </summary>
+        private async Task SaveMonthlyForecast(List<MonthlyForecast> results)
+        {
+            if (results.Count == 0)
+            {
+                throw new InvalidOperationException("No monthly forecasts were provided for saving.");
+            }
+
+            await using var transaction = await _context.Database.BeginTransactionAsync();
+
+            var existingResults = await _context.MonthlyForecast.ToListAsync();
+
+            foreach (var result in results)
+            {
+                var existingResult = existingResults.SingleOrDefault(existing => existing.Series == result.Series && existing.Geo == result.Geo && existing.Month == result.Month);
+
+                if (existingResult == null)
+                {
+                    _context.MonthlyForecast.Add(result);
+                    continue;
+                }
+
+                result.Id = existingResult.Id;
+
+                existingResult.Dataset = result.Dataset;
+                existingResult.Unit = result.Unit;
+                existingResult.TrainingStartMonth = result.TrainingStartMonth;
+                existingResult.TrainingEndMonth = result.TrainingEndMonth;
+                existingResult.HorizonMonths = result.HorizonMonths;
+                existingResult.Method = result.Method;
+                existingResult.PredictedValue = result.PredictedValue;
+            }
+
+            await _context.SaveChangesAsync();
+
+            await transaction.CommitAsync();
         }
     }
 }

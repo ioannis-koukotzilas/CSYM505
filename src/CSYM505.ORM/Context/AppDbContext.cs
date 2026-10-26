@@ -50,6 +50,8 @@ namespace CSYM505.ORM.Context
 
         public DbSet<AnnualPlatformDemand> AnnualPlatformDemand { get; set; } = null!;
 
+        public DbSet<MonthlyForecast> MonthlyForecast { get; set; } = null!;
+
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options) { }
 
