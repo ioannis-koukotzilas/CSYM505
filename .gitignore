@@ -5,3 +5,8 @@
 # Temporary SQLite files; keep the main database tracked
 *.db-shm
 *.db-wal
+
+# Python environment and generated files
+/forecasting/.venv/
+__pycache__/
+*.pyc

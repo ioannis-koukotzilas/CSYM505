@@ -30,5 +30,22 @@ namespace CSYM505.Api.Controllers.AnalyticsApi
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPost]
+        [Route("analyze-forecast")]
+        public async Task<IActionResult> AnalyzeForecast()
+        {
+            try
+            {
+                var service = _serviceProvider.GetRequiredService<IForecastService>();
+                var result = await service.AnalyzeForecast();
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

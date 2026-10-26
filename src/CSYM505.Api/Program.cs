@@ -1,3 +1,4 @@
+using CSYM505.Api.Controllers.AnalyticsApi.Helpers;
 using CSYM505.Api.Controllers.AnalyticsApi.Services;
 using CSYM505.Api.Controllers.ImportDataApi;
 using CSYM505.ORM.Context;
@@ -10,6 +11,8 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<IImportDataService, ImportDataService>();
 builder.Services.AddScoped<IAnalyticsService, AnalyticsService>();
+builder.Services.AddScoped<IForecastService, ForecastService>();
+builder.Services.AddScoped<ETSForecastRunner>();
 
 var connectionString = builder.Configuration.GetConnectionString("Sqlite") ?? throw new InvalidOperationException("SQLite connection string was not found.");
 
