@@ -1,0 +1,7 @@
+# Generated .NET build files
+/src/**/bin/
+/src/**/obj/
+
+# Temporary SQLite files; keep the main database tracked
+*.db-shm
+*.db-wal
